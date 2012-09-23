@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class SubscriberTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "subscriber count" do
+    assert Subscriber.all.count == 2
+  end
+
 end

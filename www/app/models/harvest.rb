@@ -1,7 +1,7 @@
 class Harvest < ActiveRecord::Base
 
   belongs_to :crop, :foreign_key => :crop_number, :primary_key => :crop_number
-  has_many :changes, :foreign_key => :uuid, :primary_key => :uuid
+  has_many :changes, :foreign_key => :harvester_uuid, :primary_key => :uuid
 
   before_save :calculate_duration
 

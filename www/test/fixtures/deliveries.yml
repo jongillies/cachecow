@@ -1,4 +1,5 @@
 1:
+  id: 1
   uuid: DELIVERY-0000-0000-3333-000000000001
   queue_time: 2012-09-23 03:23:16
   transaction_uuid: TRANS000-0000-0000-2222-000000000001
@@ -7,6 +8,7 @@
   endpoint_response_data: data
   endpoint_response_date: 2012-09-23 03:23:16
 2:
+  id: 2
   uuid: DELIVERY-0000-0000-3333-000000000002
   queue_time: 2012-09-23 03:23:16
   transaction_uuid: TRANS000-0000-0000-2222-000000000002
@@ -15,6 +17,7 @@
   endpoint_response_data: data
   endpoint_response_date: 2012-09-23 03:23:16
 3:
+  id: 3
   uuid: DELIVERY-0000-0000-3333-000000000003
   queue_time: 2012-09-23 03:23:16
   transaction_uuid: TRANS000-0000-0000-2222-000000000003

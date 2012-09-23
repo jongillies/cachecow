@@ -12,7 +12,7 @@ class Crop < ActiveRecord::Base
   has_many :subscriptions
   has_many :subscribers, :through => :subscriptions
   has_many :changes, :foreign_key => :crop_number, :primary_key => :crop_number
-  has_many :harvests
+  has_many :harvests, :foreign_key => :crop_number, :primary_key => :crop_number
 
   validates_presence_of :name, :crop_number, :description
   validates_numericality_of :crop_number, :in => 0..1000
