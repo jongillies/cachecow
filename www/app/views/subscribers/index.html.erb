@@ -1,0 +1,23 @@
+<h1>Subscribers</h1>
+
+<p><%= link_to 'New Subscriber', new_subscriber_path %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Admin Contact</th>
+    <th>Technical Contact</th>
+    <th>Number of Subscriptions</th>
+  </tr>
+
+  <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td><%= link_to subscriber.name, subscriber %></td>
+        <td><%= subscriber.admin_contact %></td>
+        <td><%= subscriber.technical_contact %></td>
+        <td>TBD</td>
+      </tr>
+  <% end %>
+
+</table>
+
