@@ -15,6 +15,6 @@ class Subscription < ActiveRecord::Base
 
   validates_presence_of :crop_id, :subscriber_id, :tractor_quantity
   validates_presence_of :endpoint_url, message: "can't be blank since we need to send the data there."
-  validates :tractor_quantity, :numericality => true
+  validates_numericality_of :tractor_quantity, :in => 0..10
 
 end

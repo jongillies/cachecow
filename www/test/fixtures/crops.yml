@@ -4,8 +4,21 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+1:
+  id: 1
+  name: Password File
+  description: /etc/passwd
+  crop_number: 400
+  config_options:
+  active: true
+  delay_interval: 0
+2:
+  id: 2
+  name: Dictionary
+  description: Dictionary
+  crop_number: 500
+  config_options:
+  active: true
+  delay_interval: 0
+
+

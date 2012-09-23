@@ -4,8 +4,27 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+1:
+  id: 1
+  crop_id: 1
+  subscriber_id: 1
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true
+
+2:
+  id: 2
+  crop_id: 1
+  subscriber_id: 2
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true
+
+3:
+  id: 3
+  crop_id: 1
+  subscriber_id: 1
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true

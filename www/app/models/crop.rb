@@ -7,7 +7,6 @@ class Crop < ActiveRecord::Base
       :config_options,
       :active,
       :delay_interval,
-      :crop_number
   )
 
   has_many :subscriptions
@@ -15,4 +14,7 @@ class Crop < ActiveRecord::Base
   has_many :change_logs
   has_many :harvester_logs, :foreign_key => :harvester_uuid
 
+  validates_presence_of :name, :crop_number, :description
+  validates_numericality_of :crop_number, :in => 0..1000
+  validates_uniqueness_of :name, :crop_number
 end
