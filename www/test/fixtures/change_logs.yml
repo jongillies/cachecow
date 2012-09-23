@@ -1,11 +1,21 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+1:
+  id: 1
+  crop_id: 1
+  queue_time: 2012-09-23 03:34:16
+  primary_key: root
+  previous_value:
+  current_value: root
+  transaction_type: ADD
+  crop_change_uuid: 00000000-0000-0000-1111-000000000001
+  harvester_uuid: 00000000-0000-0000-0000-000000000001
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+2:
+  id: 2
+  crop_id: 1
+  queue_time: 2012-09-23 03:34:16
+  primary_key: daemon
+  previous_value:
+  current_value: daemon
+  transaction_type: ADD
+  crop_change_uuid: 00000000-0000-0000-1111-000000000002
+  harvester_uuid: 00000000-0000-0000-0000-000000000001

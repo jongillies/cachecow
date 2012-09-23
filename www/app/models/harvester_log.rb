@@ -1,3 +1,32 @@
 class HarvesterLog < ActiveRecord::Base
-  has_one :transaction_log, :primary_key => :transaction_uuid, :foreign_key => :transaction_uuid
+
+  belongs_to :crop
+  has_many :change_logs, :foreign_key => :change_log_uuid, :primary_key => :change_log_uuid
+
+  before_save :calculate_duration
+
+  attr_accessible(:id,
+                  :crop_id,
+                  :began_at,
+                  :ended_at,
+                  :total_records,
+                  :number_of_changes,
+                  :number_of_adds,
+                  :number_of_deletes,
+                  :harvester_uuid)
+
+  validates_presence_of(:id,
+                        :crop_id,
+                        :began_at,
+                        :ended_at,
+                        :total_records,
+                        :number_of_changes,
+                        :number_of_adds,
+                        :number_of_deletes,
+                        :harvester_uuid)
+
+  def calculate_duration
+    self.duration = self.ended_at - self.began_at
+  end
+
 end

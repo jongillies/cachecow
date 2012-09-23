@@ -49,7 +49,6 @@ class CreateTables < ActiveRecord::Migration
       t.integer :number_of_changes
       t.integer :number_of_adds
       t.integer :number_of_deletes
-      t.integer :subscriber_id
       t.string :harvester_uuid
       t.integer :duration
       t.timestamps

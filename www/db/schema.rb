@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
     t.integer  "number_of_changes"
     t.integer  "number_of_adds"
     t.integer  "number_of_deletes"
-    t.integer  "subscriber_id"
     t.string   "harvester_uuid"
     t.integer  "duration"
     t.datetime "created_at",        :null => false
