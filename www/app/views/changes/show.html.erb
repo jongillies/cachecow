@@ -1,0 +1,64 @@
+<h1>Change Log</h1>
+
+<table>
+  <caption></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr>
+    <td>Crop Change UUID:</td>
+    <td><%= @change.crop_change_uuid %></td>
+  </tr>
+
+  <tr>
+    <td>Harvester UUID:</td>
+    <td><%= link_to @change.harvester_uuid, harvester_log_path(@change.harvester_log) unless @change.harvester_log.nil? %></td>
+  </tr>
+
+  <tr>
+    <td>Crop:</td>
+    <td><%= link_to @change.crop.name, crop_path(@change.crop) unless @change.crop.nil? %></td>
+  </tr>
+
+  <tr>
+    <td>Type:</td>
+    <td><%= @change.transaction_type %></td>
+  </tr>
+  <tr>
+    <td>Queue time:</td>
+    <td><%= @change.queue_time %></td>
+  </tr>
+
+  <tr>
+    <td>Primary key:</td>
+    <td><%= @change.primary_key %></td>
+  </tr>
+
+  <tr>
+    <td>Previous value:</td>
+    <td><%= @change.previous_value %></td>
+  </tr>
+
+  <tr>
+    <td>Current value:</td>
+    <td><%= @change.current_value %></td>
+  </tr>
+
+  <tr>
+    <td>Transactions:</td>
+    <td><%= link_to @change.transaction_logs.count, transaction_log_path({:q => {:crop_change_uuid_cont => @change.crop_change_uuid, :transaction_type_cont => "transactions"}}) %></td>
+  </tr>
+
+
+  </tbody>
+
+</table>
+
+<br>
+
+<%= link_to 'Back', change_logs_path %>

@@ -1,0 +1,54 @@
+<h1>Delivery Log</h1>
+
+<table>
+  <caption></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Delivery UUID</td>
+    <td><%= @delivery.delivery_log_uuid %></td>
+  </tr>
+
+  <tr>
+    <td>Transaction UUID</td>
+    <td><%= link_to @delivery.transaction_uuid, transaction_log_path(@delivery.transaction_log) %></td>
+  </tr>
+
+  <tr>
+    <td>Subscriber</td>
+    <td><%= link_to @delivery.transaction_log.subscription.subscriber.name, subscriber_path(@delivery.transaction_log.subscription.subscriber) unless @delivery.transaction_log.nil? %></td>
+  </tr>
+  <tr>
+    <td>Queue time</td>
+    <td><%= @delivery.queue_time %></td>
+  </tr>
+  <tr>
+    <td>Crop</td>
+    <td><%= link_to @delivery.transaction_log.change.crop.name, crop_path(@delivery.transaction_log.change.crop) unless @delivery.transaction_log.nil? %></td>
+  </tr>
+  <tr>
+    <td>Endpoint Response Code</td>
+    <td><%= @delivery.endpoint_response_code %></td>
+  </tr>
+  <tr>
+    <td>Endpoint Response Header</td>
+    <td><%= @delivery.endpoint_response_header %></td>
+  </tr>
+  <tr>
+    <td>Endpoint Response Data</td>
+    <td><%= @delivery.endpoint_response_data %></td>
+  </tr>
+  <tr>
+    <td>Endpoint Response Date</td>
+    <td><%= @delivery.endpoint_response_date %></td>
+  </tr>
+</table>
+
+
+<br>
+<%= link_to 'Back', delivery_logs_path %>

@@ -1,0 +1,56 @@
+<h1>Transaction Log</h1>
+
+<table>
+  <caption></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Delivery UUID</td>
+    <td><%= link_to @transaction.delivery.delivery_log_uuid, @transaction.delivery if @transaction.delivery %></td>
+  </tr>
+  <tr>
+    <td>Transaction UUID:</td>
+    <td><%= @transaction.transaction_uuid %></td>
+  </tr>
+  <tr>
+    <td>Subscriber:</td>
+    <td><%= link_to @transaction.subscription.subscriber.name, subscriber_path(@transaction.subscription.subscriber) unless @transaction.subscription.subscriber.nil? %></td>
+  </tr>
+  <tr>
+    <td>Crop:</td>
+    <td><%= link_to @transaction.change.crop.name, crop_path(@transaction.change.crop) %></td>
+  </tr>
+  <tr>
+    <td>Change Log:</td>
+    <td><%= link_to @transaction.queue_time, change_log_path(@transaction.change) unless @transaction.change.nil? %></td>
+  </tr>
+  <tr>
+    <td>Delivered:</td>
+    <td><%= link_to(@transaction.delivery.endpoint_response_date, @transaction.delivery) unless @transaction.delivery.nil? %></td>
+  </tr>
+  <tr>
+    <td>Queue time:</td>
+    <td><%= @transaction.queue_time %></td>
+  </tr>
+  <tr>
+    <td>Primary Key:</td>
+    <td><%= @transaction.change.primary_key %></td>
+  </tr>
+  <tr>
+    <td>Previous Value:</td>
+    <td><%= @transaction.change.previous_value %></td>
+  </tr>
+  <tr>
+    <td>Current Value:</td>
+    <td><%= @transaction.change.current_value %></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Back', transaction_logs_path %>

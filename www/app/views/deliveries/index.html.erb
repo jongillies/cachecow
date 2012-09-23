@@ -1,0 +1,34 @@
+<h1>Delivery Logs</h1>
+
+<a href="#" name="search">Search</a>
+<%= search_form_for @q, url: request.path do |c| %>
+    <div id="text_search">
+      <%= c.text_field :delivery_log_uuid_or_endpoint_response_code_or_endpoint_response_data_or_endpoint_response_header_cont, :placeholder => "Search any text fields" %>
+      <%= c.submit %>
+      <%= link_to "clear", request.path %>
+    </div>
+<% end %>
+
+<br>
+
+<table>
+  <tr>
+    <th>Log</th>
+    <th>Queued At</th>
+    <th>Transaction UID</th>
+    <th>Subscriber</th>
+    <th>Response Code</th>
+    <th>Response Date</th>
+  </tr>
+
+  <% @deliveries.each do |delivery_log| %>
+      <tr>
+        <td><%= link_to "Show", delivery_log_path(delivery_log) %></td>
+        <td><%= delivery_log.queue_time %></td>
+        <td><%= link_to delivery_log.transaction_uuid, transaction_log_path(delivery_log.transaction_log) unless delivery_log.transaction_log.nil? %></td>
+        <td><%= link_to delivery_log.transaction_log.subscription.subscriber.name, subscriber_path(delivery_log.transaction_log.subscription.subscriber) unless delivery_log.transaction_log.nil? %></td>
+        <td><%= delivery_log.endpoint_response_code %></td>
+        <td><%= delivery_log.endpoint_response_date %></td>
+      </tr>
+  <% end %>
+</table>

@@ -1,0 +1,30 @@
+<h1>Harvester Logs</h1>
+    <table>
+      <tr>
+        <th>Log</th>
+        <th>Queued At</th>
+        <th>Crop</th>
+        <th>Began At</th>
+        <th>Ended At</th>
+        <th>Duration</th>
+        <th>Total Records</th>
+        <th>Changes</th>
+        <th>Adds</th>
+        <th>Deletes</th>
+      </tr>
+
+      <% @harvests.each do |harvester_log| %>
+          <tr>
+            <td><%= link_to "Show", harvester_log %></td>
+            <td><%= harvester_log.created_at %></td>
+            <td><%= link_to harvester_log.crop.name, harvester_log.crop %></td>
+            <td><%= harvester_log.began_at.to_formatted_s(:long) %></td>
+            <td><%= harvester_log.ended_at.to_formatted_s(:long) %></td>
+            <td><%= distance_of_time_in_words harvester_log.duration %></td>
+            <td><%= harvester_log.total_records %></td>
+            <td><%= link_to harvester_log.number_of_changes, change_logs_path({:q => {:harvester_uuid_cont => harvester_log.harvester_uuid, :transaction_type_cont => "change"}}) %></td>
+            <td><%= link_to harvester_log.number_of_adds, change_logs_path({:q => {:harvester_uuid_cont => harvester_log.harvester_uuid, :transaction_type_cont => "add"}}) %></td>
+            <td><%= link_to harvester_log.number_of_deletes, change_logs_path({:q => {:harvester_uuid_cont => harvester_log.harvester_uuid, :transaction_type_cont => "delete"}}) %></td>
+          </tr>
+      <% end %>
+    </table>

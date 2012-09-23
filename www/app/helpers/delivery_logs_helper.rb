@@ -1,2 +1,0 @@
-module DeliveryLogsHelper
-end
