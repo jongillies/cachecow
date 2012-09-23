@@ -1,4 +1,4 @@
-<h1>Delivery Log</h1>
+<h1>Delivery</h1>
 
 <table>
   <caption></caption>
@@ -11,17 +11,17 @@
   <tbody>
   <tr>
     <td>Delivery UUID</td>
-    <td><%= @delivery.delivery_log_uuid %></td>
+    <td><%= @delivery.uuid %></td>
   </tr>
 
   <tr>
     <td>Transaction UUID</td>
-    <td><%= link_to @delivery.transaction_uuid, transaction_log_path(@delivery.transaction_log) %></td>
+    <td><%= link_to @delivery.transaction_uuid, transaction_path(@delivery.transaction) %></td>
   </tr>
 
   <tr>
     <td>Subscriber</td>
-    <td><%= link_to @delivery.transaction_log.subscription.subscriber.name, subscriber_path(@delivery.transaction_log.subscription.subscriber) unless @delivery.transaction_log.nil? %></td>
+    <td><%= link_to @delivery.transaction.subscription.subscriber.name, subscriber_path(@delivery.transaction.subscription.subscriber) unless @delivery.transaction.nil? %></td>
   </tr>
   <tr>
     <td>Queue time</td>
@@ -29,7 +29,7 @@
   </tr>
   <tr>
     <td>Crop</td>
-    <td><%= link_to @delivery.transaction_log.change.crop.name, crop_path(@delivery.transaction_log.change.crop) unless @delivery.transaction_log.nil? %></td>
+    <td><%= link_to @delivery.transaction.change.crop.name, crop_path(@delivery.transaction.change.crop) unless @delivery.transaction.nil? %></td>
   </tr>
   <tr>
     <td>Endpoint Response Code</td>
@@ -51,4 +51,4 @@
 
 
 <br>
-<%= link_to 'Back', delivery_logs_path %>
+<%= link_to 'Back', deliveries_path %>

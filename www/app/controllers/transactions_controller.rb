@@ -21,9 +21,9 @@ class TransactionsController < ApplicationController
     respond_with(@transaction)
 
     #crop_id = Crop.where(crop_number: params[:crop_number]).limit(1)[0].id
-    #@transaction_log = TransactionLog.new(params[:transaction_log].merge(crop_id: crop_id))
-    #flash[:notice] = "Transaction log was successfully created." if @transaction_log.save
-    #respond_with(@transaction_log)
+    #@transaction = TransactionLog.new(params[:transaction].merge(crop_id: crop_id))
+    #flash[:notice] = "Transaction log was successfully created." if @transaction.save
+    #respond_with(@transaction)
   end
 
 end

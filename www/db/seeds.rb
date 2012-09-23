@@ -12,18 +12,18 @@ YAML::load_file("test/fixtures/subscriptions.yml").each do |_,subscription|
   Subscription.create!(subscription)
 end
 
-YAML::load_file("test/fixtures/harvester_logs.yml").each do |_,harvester_log|
-  HarvesterLog.create!(harvester_log)
+YAML::load_file("test/fixtures/harvests.yml").each do |_,harvest|
+  Harvest.create!(harvest)
 end
 
-YAML::load_file("test/fixtures/change_logs.yml").each do |_,change_log|
-  ChangeLog.create!(change_log)
+YAML::load_file("test/fixtures/changes.yml").each do |_,change|
+  Change.create(change)
 end
 
-YAML::load_file("test/fixtures/transaction_logs.yml").each do |_,transaction_log|
-  TransactionLog.create!(transaction_log)
+YAML::load_file("test/fixtures/transactions.yml").each do |_,transaction|
+  Transaction.create!(transaction)
 end
 
-YAML::load_file("test/fixtures/delivery_logs.yml").each do |_,delivery_log|
-  DeliveryLog.create!(delivery_log)
+YAML::load_file("test/fixtures/deliveries.yml").each do |_,delivery|
+  Delivery.create!(delivery)
 end

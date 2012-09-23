@@ -10,6 +10,8 @@ class DeliveriesController < ApplicationController
   end
 
   def show
+    logger.puts params.inspect
+
     respond_with(@delivery = Delivery.find(params[:id]))
   end
 

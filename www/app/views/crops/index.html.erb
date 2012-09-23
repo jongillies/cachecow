@@ -26,9 +26,9 @@
         <td><%= link_to crop.name, crop %></td>
         <td><%= crop.crop_number %></td>
         <td><%= crop.subscriptions.count %></td>
-        <td><%= link_to crop.number_of_things("add"),    change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "add"}})%>/
-          <%=   link_to crop.number_of_things("change"), change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "change"}})%>/
-          <%=   link_to crop.number_of_things("delete"), change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "delete"}})%>
+        <td><%= link_to crop.number_of_things("add"),    changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "add"}})%>/
+          <%=   link_to crop.number_of_things("change"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "change"}})%>/
+          <%=   link_to crop.number_of_things("delete"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "delete"}})%>
         </td>
         <td><%= crop.description %></td>
       </tr>

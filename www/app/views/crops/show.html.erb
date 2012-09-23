@@ -41,9 +41,9 @@
 
   <tr>
     <td>Adds/Changes/Deletes</td>
-  <td><%= link_to @crop.number_of_things("add"),    change_logs_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "add"}})%>/
-    <%=   link_to @crop.number_of_things("change"), change_logs_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "change"}})%>/
-    <%=   link_to @crop.number_of_things("delete"), change_logs_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "delete"}})%>
+  <td><%= link_to @crop.number_of_things("add"),    transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "add"}})%>/
+    <%=   link_to @crop.number_of_things("change"), transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "change"}})%>/
+    <%=   link_to @crop.number_of_things("delete"), transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "delete"}})%>
   </td>
   </tr>
 

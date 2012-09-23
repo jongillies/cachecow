@@ -12,12 +12,13 @@
 class Transaction < ActiveRecord::Base
 
   belongs_to :subscription
-  belongs_to :change, :foreign_key => :crop_change_uuid, :primary_key => :crop_change_uuid
-  belongs_to :delivery, :primary_key => :transaction_uuid, :foreign_key => :transaction_uuid
+  belongs_to :change, :foreign_key => :change_uuid, :primary_key => :uuid
+  belongs_to :delivery, :foreign_key => :delivery_uuid, :primary_key => :uuid
 
   attr_accessible(
       :subscription_id,
-      :crop_change_uuid,
+      :change_uuid,
+      :delivery_uuid,
       :uuid,
       :queue_time
   )

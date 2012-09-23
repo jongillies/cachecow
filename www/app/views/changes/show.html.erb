@@ -1,4 +1,4 @@
-<h1>Change Log</h1>
+<h1>Change</h1>
 
 <table>
   <caption></caption>
@@ -11,13 +11,13 @@
   <tbody>
 
   <tr>
-    <td>Crop Change UUID:</td>
-    <td><%= @change.crop_change_uuid %></td>
+    <td>Change UUID:</td>
+    <td><%= @change.uuid %></td>
   </tr>
 
   <tr>
     <td>Harvester UUID:</td>
-    <td><%= link_to @change.harvester_uuid, harvester_log_path(@change.harvester_log) unless @change.harvester_log.nil? %></td>
+    <td><%= link_to @change.harvest.uuid, harvest_path(@change.harvest) unless @change.harvest.nil? %></td>
   </tr>
 
   <tr>
@@ -49,11 +49,6 @@
     <td><%= @change.current_value %></td>
   </tr>
 
-  <tr>
-    <td>Transactions:</td>
-    <td><%= link_to @change.transaction_logs.count, transaction_log_path({:q => {:crop_change_uuid_cont => @change.crop_change_uuid, :transaction_type_cont => "transactions"}}) %></td>
-  </tr>
-
 
   </tbody>
 
@@ -61,4 +56,4 @@
 
 <br>
 
-<%= link_to 'Back', change_logs_path %>
+<%= link_to 'Back', changes_path %>

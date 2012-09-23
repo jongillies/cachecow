@@ -1,4 +1,4 @@
-<h1>Transaction Log</h1>
+<h1>Transaction</h1>
 
 <table>
   <caption></caption>
@@ -11,11 +11,11 @@
   <tbody>
   <tr>
     <td>Delivery UUID</td>
-    <td><%= link_to @transaction.delivery.delivery_log_uuid, @transaction.delivery if @transaction.delivery %></td>
+    <td><%= link_to @transaction.delivery.uuid, @transaction.delivery if @transaction.delivery %></td>
   </tr>
   <tr>
     <td>Transaction UUID:</td>
-    <td><%= @transaction.transaction_uuid %></td>
+    <td><%= @transaction.uuid %></td>
   </tr>
   <tr>
     <td>Subscriber:</td>
@@ -26,8 +26,8 @@
     <td><%= link_to @transaction.change.crop.name, crop_path(@transaction.change.crop) %></td>
   </tr>
   <tr>
-    <td>Change Log:</td>
-    <td><%= link_to @transaction.queue_time, change_log_path(@transaction.change) unless @transaction.change.nil? %></td>
+    <td>Change:</td>
+    <td><%= link_to @transaction.change.uuid, change_path(@transaction.change) unless @transaction.change.nil? %></td>
   </tr>
   <tr>
     <td>Delivered:</td>
@@ -53,4 +53,4 @@
 </table>
 
 <br>
-<%= link_to 'Back', transaction_logs_path %>
+<%= link_to 'Back', transactions_path %>

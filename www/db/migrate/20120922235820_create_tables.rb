@@ -1,6 +1,7 @@
 class CreateTables < ActiveRecord::Migration
   def up
     create_table :bulk_orders do |t|
+      t.string :uuid
       t.integer :crop_id
       t.integer :subscriber_id
       t.string :command
@@ -8,14 +9,14 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :change_logs, :force => true do |t|
+    create_table :changes, :force => true do |t|
       t.integer :crop_number
       t.datetime :queue_time
       t.string :primary_key
       t.text :previous_value, :limit => 2147483647
       t.text :current_value, :limit => 2147483647
       t.string :transaction_type
-      t.string :crop_change_uuid
+      t.string :uuid
       t.string :harvester_uuid
       t.timestamps
     end
@@ -30,18 +31,18 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :delivery_logs, :force => true do |t|
+    create_table :deliveries, :force => true do |t|
       t.string :transaction_uuid
       t.integer :endpoint_response_code
       t.string :endpoint_response_header
       t.string :endpoint_response_data
       t.datetime :endpoint_response_date
-      t.string :delivery_log_uuid
+      t.string :uuid
       t.datetime :queue_time
       t.timestamps
     end
 
-    create_table :harvester_logs, :force => true do |t|
+    create_table :harvests, :force => true do |t|
       t.integer :crop_number
       t.datetime :began_at
       t.datetime :ended_at
@@ -49,7 +50,7 @@ class CreateTables < ActiveRecord::Migration
       t.integer :number_of_changes
       t.integer :number_of_adds
       t.integer :number_of_deletes
-      t.string :harvester_uuid
+      t.string :uuid
       t.integer :duration
       t.timestamps
     end
@@ -72,10 +73,11 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :transaction_logs, :force => true do |t|
-      t.string :crop_change_uuid
+    create_table :transactions, :force => true do |t|
+      t.string :change_uuid
       t.string :queue_time
-      t.string :transaction_uuid
+      t.string :uuid
+      t.string :delivery_uuid
       t.integer :subscription_id
       t.timestamps
     end
@@ -84,12 +86,12 @@ class CreateTables < ActiveRecord::Migration
 
   def down
     drop_table :bulk_orders
-    drop_table :change_logs
+    drop_table :changes
     drop_table :crops
-    drop_table :delivery_logs
-    drop_table :harvester_logs
+    drop_table :deliveries
+    drop_table :harvests
     drop_table :subscribers
     drop_table :subscriptions
-    drop_table :transaction_logs
+    drop_table :transactions
   end
 end

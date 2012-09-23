@@ -1,9 +1,9 @@
-<h1>Change Logs</h1>
+<h1>Changes</h1>
 
 <a href="#" name="search">Search</a>
 <%= search_form_for @q, url: request.path do |c| %>
     <div id="text_search">
-      <%= c.text_field :crop_id_or_harvester_uuid_or_crop_change_uuid_or_current_value_or_previous_value_cont, :placeholder => "Search any text fields" %>
+      <%= c.text_field :crop_id_or_harvester_uuid_or_crop_number_or_current_value_or_previous_value_cont, :placeholder => "Search any text fields" %>
       <%= c.submit %>
       <%= link_to "clear", request.path %>
     </div>
@@ -20,13 +20,13 @@
     <th>Transaction Type</th>
   </tr>
 
-  <% @changes.each do |change_log| %>
+  <% @changes.each do |change| %>
       <tr>
-        <td><%= link_to "Show", change_log_path(change_log) %></td>
-        <td><%= change_log.queue_time %></td>
-        <td><%= link_to change_log.crop.name, crop_path(change_log.crop) unless change_log.crop.nil? %></td>
-        <td><%= change_log.primary_key %></td>
-        <td><%= change_log.transaction_type %></td>
+        <td><%= link_to "Show", change_path(change) %></td>
+        <td><%= change.queue_time %></td>
+        <td><%= link_to change.crop.name, crop_path(change.crop) unless change.crop.nil? %></td>
+        <td><%= change.primary_key %></td>
+        <td><%= change.transaction_type %></td>
       </tr>
   <% end %>
 </table>

@@ -3,10 +3,10 @@ Www::Application.routes.draw do
   resources :subscribers
   resources :crops
   resources :subscriptions
-  resources :change_logs
-  resources :harvester_logs
-  resources :transaction_logs
-  resources :delivery_logs
+  resources :changes
+  resources :harvests
+  resources :transactions
+  resources :deliveries
 
   # root :to => 'welcome#index'
 

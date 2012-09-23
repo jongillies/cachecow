@@ -1,4 +1,4 @@
-<h1>Transaction Logs</h1>
+<h1>Transactions</h1>
 
 <table>
   <tr>
@@ -11,15 +11,15 @@
     <th>Transaction Type</th>
   </tr>
 
-  <% @transactions.each do |transaction_log| %>
+  <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= link_to "Show", transaction_log %></td>
-        <td><%= transaction_log.queue_time %></td>
-        <td><%= link_to "Delivery", transaction_log.delivery unless transaction_log.delivery.nil? %></td>
-        <td><%= link_to transaction_log.subscription.subscriber.name, subscriber_path(transaction_log.subscription.subscriber) unless transaction_log.subscription.subscriber.nil? %></td>
-        <td><%= link_to "Change", change_log_path(transaction_log.change) %></td>
-        <td><%= transaction_log.change.primary_key %></td>
-        <td><%= transaction_log.change.transaction_type %></td>
+        <td><%= link_to "Show", transaction %></td>
+        <td><%= transaction.queue_time %></td>
+        <td><%= link_to "Delivery", transaction.delivery unless transaction.delivery.nil? %></td>
+        <td><%= link_to transaction.subscription.subscriber.name, subscriber_path(transaction.subscription.subscriber) unless transaction.subscription.subscriber.nil? %></td>
+        <td><%= link_to "Change", change_path(transaction.change) %></td>
+        <td><%= transaction.change.primary_key %></td>
+        <td><%= transaction.change.transaction_type %></td>
       </tr>
   <% end %>
 </table>
