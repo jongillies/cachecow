@@ -16,5 +16,5 @@ one:
   previous_value:
   current_value: daemon
   transaction_type: add
-  uuid: CHANGE00-0000-0000-1111-000000000001
+  uuid: CHANGE00-0000-0000-1111-000000000002
   harvester_uuid: HARVEST0-0000-0000-0000-000000000001

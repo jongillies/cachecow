@@ -18,6 +18,7 @@
     <th>Crop</th>
     <th>Primary Key</th>
     <th>Transaction Type</th>
+    <th>Number of transactions</th>
   </tr>
 
   <% @changes.each do |change| %>
@@ -27,6 +28,11 @@
         <td><%= link_to change.crop.name, crop_path(change.crop) unless change.crop.nil? %></td>
         <td><%= change.primary_key %></td>
         <td><%= change.transaction_type %></td>
+        <td><%= link_to change.transactions.count,    transactions_path({:q => {:change_uuid_eq => change.uuid}})%>
+
+
       </tr>
   <% end %>
 </table>
+
+<%= will_paginate @changes %>

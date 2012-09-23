@@ -3,7 +3,10 @@ class TransactionsController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@transactions = Transaction.all)
+    @q = Transaction.search(params[:q])
+    @total = @q.result(:distinct => true).order("created_at DESC")
+    @transactions = @total.paginate(page: params[:page])
+    respond_with(@transactions)
   end
 
   def show

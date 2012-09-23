@@ -1,30 +1,32 @@
 <h1>Harvests</h1>
-    <table>
-      <tr>
-        <th>Log</th>
-        <th>Queued At</th>
-        <th>Crop</th>
-        <th>Began At</th>
-        <th>Ended At</th>
-        <th>Duration</th>
-        <th>Total Records</th>
-        <th>Changes</th>
-        <th>Adds</th>
-        <th>Deletes</th>
-      </tr>
+<table>
+  <tr>
+    <th>Log</th>
+    <th>Queued At</th>
+    <th>Crop</th>
+    <th>Began At</th>
+    <th>Ended At</th>
+    <th>Duration</th>
+    <th>Total Records</th>
+    <th>Changes</th>
+    <th>Adds</th>
+    <th>Deletes</th>
+  </tr>
 
-      <% @harvests.each do |harvest| %>
-          <tr>
-            <td><%= link_to "Show", harvest %></td>
-            <td><%= harvest.created_at %></td>
-            <td><%= link_to harvest.crop.name, harvest.crop %></td>
-            <td><%= harvest.began_at.to_formatted_s(:long) %></td>
-            <td><%= harvest.ended_at.to_formatted_s(:long) %></td>
-            <td><%= distance_of_time_in_words harvest.duration %></td>
-            <td><%= harvest.total_records %></td>
-            <td><%= link_to harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "change"}}) %></td>
-            <td><%= link_to harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "add"}}) %></td>
-            <td><%= link_to harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "delete"}}) %></td>
-          </tr>
-      <% end %>
-    </table>
+  <% @harvests.each do |harvest| %>
+      <tr>
+        <td><%= link_to "Show", harvest %></td>
+        <td><%= harvest.created_at %></td>
+        <td><%= link_to harvest.crop.name, harvest.crop %></td>
+        <td><%= harvest.began_at.to_formatted_s(:long) %></td>
+        <td><%= harvest.ended_at.to_formatted_s(:long) %></td>
+        <td><%= distance_of_time_in_words harvest.duration %></td>
+        <td><%= harvest.total_records %></td>
+        <td><%= link_to harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "change"}}) %></td>
+        <td><%= link_to harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "add"}}) %></td>
+        <td><%= link_to harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "delete"}}) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @harvests %>

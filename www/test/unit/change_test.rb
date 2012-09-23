@@ -14,7 +14,11 @@ class ChangeTest < ActiveSupport::TestCase
   end
 
   test "1st change has 2 transactions" do
-    assert Change.find(1).transactions.count == 3
+    assert Change.find(1).transactions.count == 2
+  end
+
+  test "2nd change has 1 transactions" do
+    assert Change.find(1).transactions.count == 2
   end
 
 
