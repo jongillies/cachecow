@@ -6,7 +6,7 @@ class HarvesterLog < ActiveRecord::Base
   before_save :calculate_duration
 
   attr_accessible(:id,
-                  :crop_id,
+                  :crop_number,
                   :began_at,
                   :ended_at,
                   :total_records,
@@ -16,7 +16,7 @@ class HarvesterLog < ActiveRecord::Base
                   :harvester_uuid)
 
   validates_presence_of(:id,
-                        :crop_id,
+                        :crop_number,
                         :began_at,
                         :ended_at,
                         :total_records,

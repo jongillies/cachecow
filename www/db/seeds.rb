@@ -23,3 +23,7 @@ end
 YAML::load_file("test/fixtures/transaction_logs.yml").each do |_,transaction_log|
   TransactionLog.create!(transaction_log)
 end
+
+YAML::load_file("test/fixtures/delivery_logs.yml").each do |_,delivery_log|
+  DeliveryLog.create!(delivery_log)
+end

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
   add_index "bulk_orders", ["subscriber_id"], :name => "index_bulk_orders_on_subscriber_id"
 
   create_table "change_logs", :force => true do |t|
-    t.integer  "crop_id"
+    t.integer  "crop_number"
     t.datetime "queue_time"
     t.string   "primary_key"
     t.text     "previous_value",   :limit => 2147483647
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
   add_index "delivery_logs", ["transaction_uuid"], :name => "index_delivery_logs_on_transaction_uuid"
 
   create_table "harvester_logs", :force => true do |t|
-    t.integer  "crop_id"
+    t.integer  "crop_number"
     t.datetime "began_at"
     t.datetime "ended_at"
     t.integer  "total_records"
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
   end
 
   create_table "subscriptions", :force => true do |t|
-    t.integer  "crop_id"
     t.integer  "subscriber_id"
+    t.integer  "crop_id"
     t.integer  "tractor_quantity", :default => 1
     t.string   "endpoint_url"
     t.boolean  "active"
@@ -107,16 +107,14 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
   add_index "subscriptions", ["subscriber_id"], :name => "index_subscriptions_on_subscriber_id"
 
   create_table "transaction_logs", :force => true do |t|
-    t.integer  "crop_id"
-    t.integer  "subscriber_id"
+    t.integer  "crop_change_uuid"
     t.string   "queue_time"
     t.string   "transaction_uuid"
+    t.integer  "subscription_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
-  add_index "transaction_logs", ["crop_id"], :name => "index_transaction_logs_on_crop_id"
-  add_index "transaction_logs", ["subscriber_id"], :name => "index_transaction_logs_on_subscriber_id"
   add_index "transaction_logs", ["transaction_uuid"], :name => "index_transaction_logs_on_transaction_uuid"
 
 end

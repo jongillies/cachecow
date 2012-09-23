@@ -9,7 +9,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :change_logs, :force => true do |t|
-      t.integer :crop_id
+      t.integer :crop_number
       t.datetime :queue_time
       t.string :primary_key
       t.text :previous_value, :limit => 2147483647
@@ -42,7 +42,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :harvester_logs, :force => true do |t|
-      t.integer :crop_id
+      t.integer :crop_number
       t.datetime :began_at
       t.datetime :ended_at
       t.integer :total_records
@@ -64,8 +64,8 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :subscriptions, :force => true do |t|
-      t.integer :crop_id
       t.integer :subscriber_id
+      t.integer :crop_id
       t.integer :tractor_quantity, :default => 1
       t.string :endpoint_url
       t.boolean :active
@@ -73,10 +73,10 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :transaction_logs, :force => true do |t|
-      t.integer :crop_id
-      t.integer :subscriber_id
+      t.integer :crop_change_uuid
       t.string :queue_time
       t.string :transaction_uuid
+      t.integer :subscription_id
       t.timestamps
     end
 
