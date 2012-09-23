@@ -1,6 +1,6 @@
 class HarvesterLog < ActiveRecord::Base
 
-  belongs_to :crop
+  belongs_to :crop, :foreign_key => :crop_number, :primary_key => :crop_number
   has_many :change_logs, :foreign_key => :change_log_uuid, :primary_key => :change_log_uuid
 
   before_save :calculate_duration

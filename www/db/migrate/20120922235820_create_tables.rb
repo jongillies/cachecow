@@ -73,7 +73,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :transaction_logs, :force => true do |t|
-      t.integer :crop_change_uuid
+      t.string :crop_change_uuid
       t.string :queue_time
       t.string :transaction_uuid
       t.integer :subscription_id

@@ -12,8 +12,8 @@
 class TransactionLog < ActiveRecord::Base
 
   belongs_to :subscription
-  has_one :change_log, :foreign_key => :crop_change_uuid, :primary_key => :crop_change_uuid
-  has_one :delivery_log, :primary_key => :delivery_log_uuid, :foreign_key => :delivery_log_uuid
+  belongs_to :change_log, :foreign_key => :crop_change_uuid, :primary_key => :crop_change_uuid
+  belongs_to :delivery_log, :primary_key => :transaction_uuid, :foreign_key => :transaction_uuid
 
   attr_accessible(
       :subscription_id,

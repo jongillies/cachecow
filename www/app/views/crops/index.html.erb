@@ -1,4 +1,13 @@
-<h1>Crop</h1>
+<h1>Crop (<%= @total.count %>)</h1>
+
+<a href="#" name="search">Search</a>
+<%= search_form_for @q, url: request.path do |c| %>
+    <div id="text_search">
+      <%= c.text_field :name_or_description_cont, :placeholder => "Search any text fields" %>
+      <%= c.submit %>
+      <%= link_to "clear", request.path %>
+    </div>
+<% end %>
 
 <p><%= link_to 'New Crop', new_crop_path %></p>
 
@@ -17,9 +26,13 @@
         <td><%= link_to crop.name, crop %></td>
         <td><%= crop.crop_number %></td>
         <td><%= crop.subscriptions.count %></td>
-        <td></td>
-        <td>TODO</td>
+        <td><%= link_to crop.number_of_things("add"),    change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "add"}})%>/
+          <%=   link_to crop.number_of_things("change"), change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "change"}})%>/
+          <%=   link_to crop.number_of_things("delete"), change_logs_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "delete"}})%>
+        </td>
         <td><%= crop.description %></td>
       </tr>
   <% end %>
 </table>
+
+<%= will_paginate @crops %>

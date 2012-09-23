@@ -1,5 +1,16 @@
 <h1>Change Logs</h1>
 
+<a href="#" name="search">Search</a>
+<%= search_form_for @q, url: request.path do |c| %>
+    <div id="text_search">
+      <%= c.text_field :crop_id_or_harvester_uuid_or_crop_change_uuid_or_current_value_or_previous_value_cont, :placeholder => "Search any text fields" %>
+      <%= c.submit %>
+      <%= link_to "clear", request.path %>
+    </div>
+<% end %>
+
+<br>
+
 <table>
   <tr>
     <th>Change Log</th>
@@ -19,4 +30,3 @@
       </tr>
   <% end %>
 </table>
-`

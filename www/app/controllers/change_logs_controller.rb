@@ -3,7 +3,10 @@ class ChangeLogsController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@change_logs = ChangeLog.all)
+    @q = ChangeLog.search(params[:q])
+    @total = @q.result(:distinct => true).order("created_at DESC")
+    @change_logs = @total.paginate(page: params[:page])
+    respond_with(@change_logs)
   end
 
   def show

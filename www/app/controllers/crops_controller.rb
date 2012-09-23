@@ -3,7 +3,11 @@ class CropsController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@crops = Crop.all)
+    @q = Crop.search(params[:q])
+    @total = @q.result(:distinct => true).order("name")
+    @crops = @total.paginate(page: params[:page])
+
+    respond_with(@crops)
   end
 
   def show

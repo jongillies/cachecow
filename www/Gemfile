@@ -5,6 +5,10 @@ gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'sqlite3'
 
+gem "ransack" # Search
+gem "will_paginate", "~> 3.0" # Pagination
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -10,12 +10,16 @@
   </thead>
   <tbody>
   <tr>
+    <td>Delivery UUID</td>
+    <td><%= link_to @transaction_log.delivery_log.delivery_log_uuid, @transaction_log.delivery_log if @transaction_log.delivery_log %></td>
+  </tr>
+  <tr>
     <td>Transaction UUID:</td>
     <td><%= @transaction_log.transaction_uuid %></td>
   </tr>
   <tr>
     <td>Subscriber:</td>
-    <td><%= link_to @transaction_log.subscriber.name, subscriber_path(@transaction_log.subscriber) unless @transaction_log.subscriber.nil? %></td>
+    <td><%= link_to @transaction_log.subscription.subscriber.name, subscriber_path(@transaction_log.subscription.subscriber) unless @transaction_log.subscription.subscriber.nil? %></td>
   </tr>
   <tr>
     <td>Crop:</td>
@@ -23,7 +27,7 @@
   </tr>
   <tr>
     <td>Change Log:</td>
-    <td><%= link_to @transaction_log.crop_change_uuid, change_log_path(@transaction_log.change_log) unless @transaction_log.change_log.nil? %></td>
+    <td><%= link_to @transaction_log.queue_time, change_log_path(@transaction_log.change_log) unless @transaction_log.change_log.nil? %></td>
   </tr>
   <tr>
     <td>Delivered:</td>

@@ -49,6 +49,11 @@
     <td><%= @change_log.current_value %></td>
   </tr>
 
+  <tr>
+    <td>Transactions:</td>
+    <td><%= link_to @change_log.transaction_logs.count, transaction_log_path({:q => {:crop_change_uuid_cont => @change_log.crop_change_uuid, :transaction_type_cont => "transactions"}}) %></td>
+  </tr>
+
 
   </tbody>
 

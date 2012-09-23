@@ -6,6 +6,7 @@ Www::Application.routes.draw do
   resources :change_logs
   resources :harvester_logs
   resources :transaction_logs
+  resources :delivery_logs
 
   # root :to => 'welcome#index'
 

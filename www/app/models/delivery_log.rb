@@ -13,7 +13,7 @@
 #
 
 class DeliveryLog < ActiveRecord::Base
-  has_one :transaction_log, :primary_key => :transaction_uuid, :foreign_key => :transaction_uuid
+  belongs_to :transaction_log, :primary_key => :transaction_uuid, :foreign_key => :transaction_uuid
 
   attr_accessible :queue_time,
                   :transaction_uuid,
