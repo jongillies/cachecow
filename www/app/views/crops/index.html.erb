@@ -25,7 +25,7 @@
       <tr>
         <td><%= link_to crop.name, crop %></td>
         <td><%= crop.crop_number %></td>
-        <td><%= crop.subscriptions.count %></td>
+        <td><%= link_to crop.subscriptions.count,        subscriptions_path({:q => {:crop_id_eq => crop.id}})%>
         <td><%= link_to crop.number_of_things("add"),    changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "add"}})%>/
           <%=   link_to crop.number_of_things("change"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "change"}})%>/
           <%=   link_to crop.number_of_things("delete"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "delete"}})%>

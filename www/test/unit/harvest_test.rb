@@ -13,5 +13,8 @@ class HarvestTest < ActiveSupport::TestCase
     assert Harvest.find(1).changes.count == 2
   end
 
+  test "1st harvest a total change set of 2" do
+    assert Harvest.find(1).total_change_set == 2
+  end
 
 end

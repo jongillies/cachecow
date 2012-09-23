@@ -3,7 +3,12 @@ class SubscriptionsController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@subscriptions = Subscription.all)
+    @q = Subscription.search(params[:q])
+    @total = @q.result(:distinct => true)
+    @subscriptions = @total.paginate(page: params[:page])
+
+    @subscriptions = Subscription.order("subscriber_id ASC, crop_id ASC").paginate(page: params[:page])
+    respond_with(@subscriptions)
   end
 
   def show

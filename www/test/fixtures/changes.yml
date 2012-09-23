@@ -5,7 +5,7 @@ one:
   primary_key: root
   previous_value:
   current_value: root
-  transaction_type: ADD
+  transaction_type: add
   uuid: CHANGE00-0000-0000-1111-000000000001
   harvester_uuid: HARVEST0-0000-0000-0000-000000000001
 2:
@@ -15,6 +15,6 @@ one:
   primary_key: daemon
   previous_value:
   current_value: daemon
-  transaction_type: ADD
+  transaction_type: add
   uuid: CHANGE00-0000-0000-1111-000000000001
   harvester_uuid: HARVEST0-0000-0000-0000-000000000001
