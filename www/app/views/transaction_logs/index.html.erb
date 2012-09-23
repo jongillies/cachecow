@@ -1,0 +1,25 @@
+<h1>Transaction Logs</h1>
+
+<table>
+  <tr>
+    <th>Delivery Log</th>
+    <th>Queued At</th>
+    <th>Delivery Log</th>
+    <th>Subscriber</th>
+    <th>Crop Change UUID</th>
+    <th>Primary Key</th>
+    <th>Transaction Type</th>
+  </tr>
+
+  <% @transaction_logs.each do |transaction_log| %>
+      <tr>
+        <td><%= link_to "Show", transaction_log %></td>
+        <td><%= transaction_log.queue_time %></td>
+        <td><%= link_to "Delivery", transaction_log.delivery_log unless transaction_log.delivery_log.nil? %></td>
+        <td><%= link_to transaction_log.subscriber.name, subscriber_path(transaction_log.subscriber) unless transaction_log.subscriber.nil? %></td>
+        <td><%= link_to transaction_log.crop_change_uuid, change_log_path(transaction_log.change_log) %></td>
+        <td><%= transaction_log.change_log.primary_key %></td>
+        <td><%= transaction_log.change_log.transaction_type %></td>
+      </tr>
+  <% end %>
+</table>

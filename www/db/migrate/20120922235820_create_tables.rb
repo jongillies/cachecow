@@ -76,11 +76,6 @@ class CreateTables < ActiveRecord::Migration
       t.integer :crop_id
       t.integer :subscriber_id
       t.string :queue_time
-      t.string :primary_key
-      t.text :previous_value, :limit => 2147483647
-      t.text :current_value, :limit => 2147483647
-      t.string :transaction_type
-      t.string :crop_change_uuid
       t.string :transaction_uuid
       t.timestamps
     end

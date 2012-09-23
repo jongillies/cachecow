@@ -17,6 +17,9 @@ YAML::load_file("test/fixtures/harvester_logs.yml").each do |_,harvester_log|
 end
 
 YAML::load_file("test/fixtures/change_logs.yml").each do |_,change_log|
-  puts "ChangeLog.id = #{change_log["id"]}"
-  puts ChangeLog.create!(change_log)
+  ChangeLog.create!(change_log)
+end
+
+YAML::load_file("test/fixtures/transaction_logs.yml").each do |_,transaction_log|
+  TransactionLog.create!(transaction_log)
 end

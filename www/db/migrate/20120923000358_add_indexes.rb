@@ -9,7 +9,6 @@ class AddIndexes < ActiveRecord::Migration
     add_index :harvester_logs, :harvester_uuid
     add_index :subscriptions, :crop_id
     add_index :subscriptions, :subscriber_id
-    add_index :transaction_logs, :crop_change_uuid
     add_index :transaction_logs, :crop_id
     add_index :transaction_logs, :subscriber_id
     add_index :transaction_logs, :transaction_uuid
@@ -25,7 +24,6 @@ class AddIndexes < ActiveRecord::Migration
     remove_index :harvester_logs, :harvester_uuid
     remove_index :subscriptions, :crop_id
     remove_index :subscriptions, :subscriber_id
-    remove_index :transaction_logs, :crop_change_uuid
     remove_index :transaction_logs, :crop_id
     remove_index :transaction_logs, :subscriber_id
     remove_index :transaction_logs, :transaction_uuid

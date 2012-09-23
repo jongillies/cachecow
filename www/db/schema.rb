@@ -110,17 +110,11 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
     t.integer  "crop_id"
     t.integer  "subscriber_id"
     t.string   "queue_time"
-    t.string   "primary_key"
-    t.text     "previous_value",   :limit => 2147483647
-    t.text     "current_value",    :limit => 2147483647
-    t.string   "transaction_type"
-    t.string   "crop_change_uuid"
     t.string   "transaction_uuid"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  add_index "transaction_logs", ["crop_change_uuid"], :name => "index_transaction_logs_on_crop_change_uuid"
   add_index "transaction_logs", ["crop_id"], :name => "index_transaction_logs_on_crop_id"
   add_index "transaction_logs", ["subscriber_id"], :name => "index_transaction_logs_on_subscriber_id"
   add_index "transaction_logs", ["transaction_uuid"], :name => "index_transaction_logs_on_transaction_uuid"
