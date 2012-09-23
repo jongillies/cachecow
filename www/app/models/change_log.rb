@@ -13,8 +13,4 @@ class ChangeLog < ActiveRecord::Base
                   :crop_change_uuid,
                   :harvester_uuid
 
-  validates_uniqueness_of :primary_key,
-                          :crop_change_uuid,
-                          :harvester_uuid
-
 end

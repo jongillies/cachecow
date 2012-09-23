@@ -1,0 +1,59 @@
+<h1>Change Log</h1>
+
+<table>
+  <caption></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr>
+    <td>Crop Change UUID:</td>
+    <td><%= @change_log.crop_change_uuid %></td>
+  </tr>
+
+  <tr>
+    <td>Harvester UUID:</td>
+    <td><%= link_to @change_log.harvester_uuid, harvester_log_path(@change_log.harvester_log) unless @change_log.harvester_log.nil? %></td>
+  </tr>
+
+  <tr>
+    <td>Crop:</td>
+    <td><%= link_to @change_log.crop.name, crop_path(@change_log.crop) unless @change_log.crop.nil? %></td>
+  </tr>
+
+  <tr>
+    <td>Type:</td>
+    <td><%= @change_log.transaction_type %></td>
+  </tr>
+  <tr>
+    <td>Queue time:</td>
+    <td><%= @change_log.queue_time %></td>
+  </tr>
+
+  <tr>
+    <td>Primary key:</td>
+    <td><%= @change_log.primary_key %></td>
+  </tr>
+
+  <tr>
+    <td>Previous value:</td>
+    <td><%= @change_log.previous_value %></td>
+  </tr>
+
+  <tr>
+    <td>Current value:</td>
+    <td><%= @change_log.current_value %></td>
+  </tr>
+
+
+  </tbody>
+
+</table>
+
+<br>
+
+<%= link_to 'Back', change_logs_path %>

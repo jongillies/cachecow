@@ -1,0 +1,22 @@
+<h1>Change Logs</h1>
+
+<table>
+  <tr>
+    <th>Change Log</th>
+    <th>Queued At</th>
+    <th>Crop</th>
+    <th>Primary Key</th>
+    <th>Transaction Type</th>
+  </tr>
+
+  <% @change_logs.each do |change_log| %>
+      <tr>
+        <td><%= link_to "Show", change_log_path(change_log) %></td>
+        <td><%= change_log.queue_time %></td>
+        <td><%= link_to change_log.crop.name, crop_path(change_log.crop) unless change_log.crop.nil? %></td>
+        <td><%= change_log.primary_key %></td>
+        <td><%= change_log.transaction_type %></td>
+      </tr>
+  <% end %>
+</table>
+`
