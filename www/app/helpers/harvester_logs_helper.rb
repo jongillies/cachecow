@@ -1,0 +1,2 @@
+module HarvesterLogsHelper
+end
