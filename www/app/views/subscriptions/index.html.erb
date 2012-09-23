@@ -1,0 +1,24 @@
+<h1>Subscriptions</h1>
+
+<p><%= link_to 'New Subscription', new_subscription_path %></p>
+
+<table>
+  <tr>
+    <th>Subscription</th>
+    <th>Active</th>
+    <th>Crop</th>
+    <th>Subscriber</th>
+    <th>Tractor quantity</th>
+  </tr>
+
+  <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= link_to "Show", subscription %></td>
+        <td><%= subscription.active %></td>
+        <td><%= link_to subscription.crop.name, subscription.crop %></td>
+        <td><%= link_to subscription.subscriber.name, subscription.subscriber %></td>
+        <td><%= subscription.tractor_quantity %></td>
+      </tr>
+  <% end %>
+</table>
+

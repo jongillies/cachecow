@@ -1,0 +1,25 @@
+<h1>Crop</h1>
+
+<p><%= link_to 'New Crop', new_crop_path %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Crop Number</th>
+    <th># Subscriptions</th>
+    <th>A/C/D</th>
+    <th>Harvests</th>
+    <th>Description</th>
+  </tr>
+
+  <% @crops.each do |crop| %>
+      <tr>
+        <td><%= link_to crop.name, crop %></td>
+        <td><%= crop.crop_number %></td>
+        <td><%= crop.subscriptions.count %></td>
+        <td></td>
+        <td>TODO</td>
+        <td><%= crop.description %></td>
+      </tr>
+  <% end %>
+</table>

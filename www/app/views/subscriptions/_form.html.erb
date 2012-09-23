@@ -1,0 +1,42 @@
+<%= form_for(@subscription) do |f| %>
+    <% if @subscription.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+          <ul>
+            <% @subscription.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :crop %>
+      <br/>
+      <%= f.select(:crop_id, Crop.all.collect { |c| [c.name, c.id] }, {prompt: "Choose a crop"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :subscriber_id, "Subscriber" %>
+      <br/>
+      <%= f.select(:subscriber_id, Subscriber.all.collect { |s| [s.name, s.id] }, {prompt: "Choose a subscriber"}) %>
+    </div>
+    <div class="field">
+      <%= f.label :endpoint_url, "Endpoint Url" %>
+      <br/>
+      <%= f.text_field :endpoint_url, :placeholder => "http://releasethekraken.apollogrp.edu/recieve" %>
+    </div>
+    <div class="field">
+      <%= f.label :tractor_quantity, "# of Tractors" %>
+      <br/>
+      <%= f.number_field :tractor_quantity, :min => 1 %>
+    </div>
+    <div class="field">
+      <%= f.label :active %>
+      <br/>
+      <%= f.check_box :active %>
+    </div><!-- / -->
+    <div class="actions">
+      <%= f.submit "Subscribe" %>
+    </div>
+<% end %>

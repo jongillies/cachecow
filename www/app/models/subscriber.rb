@@ -5,10 +5,11 @@ class Subscriber < ActiveRecord::Base
       :secret_key,
       :admin_contact,
       :technical_contact,
-      :subscriber_number
   )
 
   has_many :subscriptions
   has_many :crops, :through => :subscriptions
+
+  validates_presence_of :name, :secret_key, :admin_contact, :technical_contact
 
 end
