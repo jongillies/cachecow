@@ -13,7 +13,7 @@ class Transaction < ActiveRecord::Base
 
   belongs_to :subscription
   belongs_to :change, :foreign_key => :change_uuid, :primary_key => :uuid
-  belongs_to :delivery, :foreign_key => :delivery_uuid, :primary_key => :uuid
+  has_one :delivery, :foreign_key => :transaction_uuid, :primary_key => :uuid
 
   attr_accessible(
       :subscription_id,
