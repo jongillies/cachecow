@@ -6,18 +6,18 @@ class DeliveriesControllerTest < ActionController::TestCase
     @delivery = deliveries(:one)
   end
 
-  test "should get delivery index" do
+  test "delivery#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:deliveries)
   end
 
-  test "should show delivery" do
+  test "delivery#show" do
     get :show, id: @delivery
     assert_response :success
   end
 
-  test "should create delivery" do
+  test "delivery#create" do
     assert_difference('Delivery.count') do
       post :create, delivery: {
           id: 4,

@@ -6,18 +6,18 @@ class ChangesControllerTest < ActionController::TestCase
     @change = changes(:one)
   end
 
-  test "should get index" do
+  test "change#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:changes)
   end
 
-  test "should show change" do
+  test "change#show" do
     get :show, id: @change
     assert_response :success
   end
 
-  test "should create change" do
+  test "change#create" do
     assert_difference('Change.count') do
       post :create, change: {
           id: 3,

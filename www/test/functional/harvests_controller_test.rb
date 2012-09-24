@@ -6,18 +6,18 @@ class HarvestsControllerTest < ActionController::TestCase
     @harvest = harvests(:one)
   end
 
-  test "should get harvest index" do
+  test "harvest#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:harvests)
   end
 
-  test "should show harvest change" do
+  test "harvest#change" do
     get :show, id: @harvest
     assert_response :success
   end
 
-  test "should create harvest" do
+  test "harvest#create" do
     assert_difference('Harvest.count') do
       post :create, harvest: {
           id: 2,

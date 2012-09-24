@@ -6,16 +6,20 @@ class SubscriptionsControllerTest < ActionController::TestCase
     @subscription = subscriptions(:one)
   end
 
-  test "should get subscription index" do
+  test "subscription#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:subscriptions)
   end
 
-  test "should show subscription" do
+  test "subscription#show" do
     get :show, id: @subscription
     assert_response :success
   end
 
+  test "subscription#new" do
+    get :new
+    assert_response :success
+  end
 
 end

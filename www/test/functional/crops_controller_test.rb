@@ -6,14 +6,19 @@ class CropsControllerTest < ActionController::TestCase
     @crop = crops(:one)
   end
 
-  test "should get crop index" do
+  test "crop#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:crops)
   end
 
-  test "should show crop" do
+  test "crop#show" do
     get :show, id: @crop
+    assert_response :success
+  end
+
+  test "crop#new" do
+    get :new
     assert_response :success
   end
 

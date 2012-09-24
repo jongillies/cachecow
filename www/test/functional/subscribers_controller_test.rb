@@ -6,14 +6,19 @@ class SubscribersControllerTest < ActionController::TestCase
     @subscriber = subscribers(:one)
   end
 
-  test "should get subscriber index" do
+  test "subscriber#index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:subscribers)
   end
 
-  test "should show subscriber" do
+  test "subscriber#show" do
     get :show, id: @subscriber
+    assert_response :success
+  end
+
+  test "subscriber#new" do
+    get :new
     assert_response :success
   end
 
