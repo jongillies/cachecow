@@ -6,7 +6,7 @@ class ChangesControllerTest < ActionController::TestCase
     @change = changes(:one)
   end
 
-  test "should get change index" do
+  test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:changes)
@@ -16,7 +16,6 @@ class ChangesControllerTest < ActionController::TestCase
     get :show, id: @change
     assert_response :success
   end
-
 
   # TODO: Fix me
   #test "should create change" do
@@ -31,7 +30,6 @@ class ChangesControllerTest < ActionController::TestCase
   #        transaction_type: "add",
   #        uuid: "CHANGE00-0000-0000-1111-00000000010",
   #        harvester_uuid: "HARVEST0-0000-0000-0000-000000000001"}
-  #
   #  end
   #
   #  assert_redirected_to change_path(assigns(:change))
