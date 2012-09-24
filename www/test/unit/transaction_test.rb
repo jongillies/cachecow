@@ -13,8 +13,8 @@ class TransactionTest < ActiveSupport::TestCase
     assert Transaction.find(1).delivery.id == 1
   end
 
-  test "1st transaction has a change" do
-    assert Transaction.find(1).change.id == 1
+  test "1st transaction's change is from harvest 1" do
+    assert Transaction.find(1).change.harvest.id == 1
   end
 
 end

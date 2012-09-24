@@ -23,11 +23,11 @@
   </tr>
   <tr>
     <td>Crop:</td>
-    <td><%= link_to @transaction.change.crop.name, crop_path(@transaction.change.crop) %></td>
+    <td><%= link_to @transaction.harvest.crop.name, crop_path(@transaction.harvest.crop) %></td>
   </tr>
   <tr>
     <td>Change:</td>
-    <td><%= link_to @transaction.change.uuid, change_path(@transaction.change) unless @transaction.change.nil? %></td>
+    <td><%= link_to @transaction.harvest.uuid, change_path(@transaction.harvest) unless @transaction.harvest.nil? %></td>
   </tr>
   <tr>
     <td>Delivered:</td>
@@ -39,15 +39,15 @@
   </tr>
   <tr>
     <td>Primary Key:</td>
-    <td><%= @transaction.change.primary_key %></td>
+    <td><%= @transaction.harvest.primary_key %></td>
   </tr>
   <tr>
     <td>Previous Value:</td>
-    <td><%= @transaction.change.previous_value %></td>
+    <td><%= @transaction.harvest.previous_value %></td>
   </tr>
   <tr>
     <td>Current Value:</td>
-    <td><%= @transaction.change.current_value %></td>
+    <td><%= @transaction.harvest.current_value %></td>
   </tr>
   </tbody>
 </table>

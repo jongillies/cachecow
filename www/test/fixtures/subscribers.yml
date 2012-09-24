@@ -4,14 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-1:
+one:
   id: 1
   name: "Security Police"
   secret_key: "You will never guess my secret key"
   admin_contact: "security@company.com"
   technical_contact: "security@company.com"
 
-2:
+two:
   id: 2
   name: "Dictionary Dog"
   secret_key: "woof"

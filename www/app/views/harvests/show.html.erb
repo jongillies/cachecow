@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>Duration:</td>
-    <td><%= distance_of_time_in_words @harvest.duration %></td>
+    <td><%= distance_of_time_in_words @harvest.duration if @harvest.duration %></td>
   </tr>
   <tr>
     <td>Total Records:</td>

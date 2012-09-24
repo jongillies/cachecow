@@ -1,4 +1,4 @@
-1:
+one:
   id: 1
   uuid: DELIVERY-0000-0000-3333-000000000001
   queue_time: 2012-09-23 03:23:16
@@ -7,7 +7,7 @@
   endpoint_response_header: header
   endpoint_response_data: data
   endpoint_response_date: 2012-09-23 03:23:16
-2:
+two:
   id: 2
   uuid: DELIVERY-0000-0000-3333-000000000002
   queue_time: 2012-09-23 03:23:16
@@ -16,7 +16,7 @@
   endpoint_response_header: header
   endpoint_response_data: data
   endpoint_response_date: 2012-09-23 03:23:16
-3:
+three:
   id: 3
   uuid: DELIVERY-0000-0000-3333-000000000003
   queue_time: 2012-09-23 03:23:16

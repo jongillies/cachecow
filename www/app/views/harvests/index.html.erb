@@ -20,7 +20,7 @@
         <td><%= link_to harvest.crop.name, harvest.crop %></td>
         <td><%= harvest.began_at.to_formatted_s(:long) %></td>
         <td><%= harvest.ended_at.to_formatted_s(:long) %></td>
-        <td><%= distance_of_time_in_words harvest.duration %></td>
+        <td><%= distance_of_time_in_words harvest.duration if harvest.duration %></td>
         <td><%= harvest.total_records %></td>
         <td><%= link_to harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "change"}}) %></td>
         <td><%= link_to harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "add"}}) %></td>

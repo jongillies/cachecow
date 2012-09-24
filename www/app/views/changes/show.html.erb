@@ -12,41 +12,41 @@
 
   <tr>
     <td>Change UUID:</td>
-    <td><%= @change.uuid %></td>
+    <td><%= @harvest.uuid %></td>
   </tr>
 
   <tr>
     <td>Harvester UUID:</td>
-    <td><%= link_to @change.harvest.uuid, harvest_path(@change.harvest) unless @change.harvest.nil? %></td>
+    <td><%= link_to @harvest.harvest.uuid, harvest_path(@harvest.harvest) unless @harvest.harvest.nil? %></td>
   </tr>
 
   <tr>
     <td>Crop:</td>
-    <td><%= link_to @change.crop.name, crop_path(@change.crop) unless @change.crop.nil? %></td>
+    <td><%= link_to @harvest.crop.name, crop_path(@harvest.crop) unless @harvest.crop.nil? %></td>
   </tr>
 
   <tr>
     <td>Type:</td>
-    <td><%= @change.transaction_type %></td>
+    <td><%= @harvest.transaction_type %></td>
   </tr>
   <tr>
     <td>Queue time:</td>
-    <td><%= @change.queue_time %></td>
+    <td><%= @harvest.queue_time %></td>
   </tr>
 
   <tr>
     <td>Primary key:</td>
-    <td><%= @change.primary_key %></td>
+    <td><%= @harvest.primary_key %></td>
   </tr>
 
   <tr>
     <td>Previous value:</td>
-    <td><%= @change.previous_value %></td>
+    <td><%= @harvest.previous_value %></td>
   </tr>
 
   <tr>
     <td>Current value:</td>
-    <td><%= @change.current_value %></td>
+    <td><%= @harvest.current_value %></td>
   </tr>
 
 

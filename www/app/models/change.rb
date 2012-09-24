@@ -1,17 +1,3 @@
-#
-# Change records are added via the JSON post to the controller
-#
-# Inbound parameters are:
-#
-# data['harvester_uuid']
-# data['crop_number']
-# data['queue_time']
-# data['primary_key']
-# data['previous_value']
-# data['current_value']
-# data['crop_change_uuid']
-# data['transaction_type']
-#
 
 class Change < ActiveRecord::Base
 

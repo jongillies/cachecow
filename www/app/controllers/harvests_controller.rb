@@ -3,7 +3,10 @@ class HarvestsController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@harvests = Harvest.all)
+    @q = Harvest.search(params[:q])
+    @total = @q.result(:distinct => true).order("created_at DESC")
+    @harvests = @total.paginate(page: params[:page])
+    respond_with(@harvests)
   end
 
   def show
@@ -11,9 +14,8 @@ class HarvestsController < ApplicationController
   end
 
   def create
-    crop_id = Crop.where(crop_number: params[:crop_number]).limit(1)[0].id
-    @harvest = Harvest.new(params[:harvest].merge(crop_id: crop_id))
-    flash[:notice] = "Harvester log was successfully created." if @harvest.save
+    @harvest = Change.new(params[:harvest])
+    flash[:notice] = "Change was successfully created." if @harvest.save
     respond_with(@harvest)
   end
 

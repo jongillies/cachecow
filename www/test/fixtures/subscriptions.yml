@@ -5,23 +5,21 @@
 # below each fixture, per the syntax in the comments below
 #
 
-1:
+one:
   id: 1
   crop_id: 1
   subscriber_id: 1
   tractor_quantity: 1
   endpoint_url: "http://localhost:3456"
   active: true
-
-2:
+two:
   id: 2
   crop_id: 1
   subscriber_id: 2
   tractor_quantity: 1
   endpoint_url: "http://localhost:3456"
   active: true
-
-3:
+three:
   id: 3
   crop_id: 2
   subscriber_id: 1
