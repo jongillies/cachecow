@@ -17,6 +17,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "subscription#edit" do
+    get :edit, id: @subscription
+    assert_response :success
+  end
+
   test "subscription#new" do
     get :new
     assert_response :success

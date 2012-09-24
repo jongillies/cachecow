@@ -17,6 +17,11 @@ class CropsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "crop#edit" do
+    get :edit, id: @crop
+    assert_response :success
+  end
+
   test "crop#new" do
     get :new
     assert_response :success
