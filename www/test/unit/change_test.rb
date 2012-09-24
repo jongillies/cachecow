@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class ChangeTest < ActiveSupport::TestCase
+
+  #include ActiveModel::Lint::Tests
+
   test "change count" do
     assert Change.all.count == 2
   end
