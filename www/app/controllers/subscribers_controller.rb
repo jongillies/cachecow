@@ -3,9 +3,9 @@ class SubscribersController < ApplicationController
   respond_to :html, :json
 
   def index
-    @subscribers =  Subscriber.all
-    @total = @subscribers.count
-
+    @q = Subscriber.search(params[:q])
+    @total = @q.result(:distinct => true).order("name")
+    @subscribers = @total.paginate(page: params[:page])
     respond_with(@subscribers)
   end
 

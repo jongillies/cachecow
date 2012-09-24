@@ -10,7 +10,7 @@ class ChangesController < ApplicationController
   end
 
   def show
-    respond_with(@harvest = Change.find(params[:id]))
+    respond_with(@change = Change.find(params[:id]))
   end
 
 
@@ -26,9 +26,9 @@ class ChangesController < ApplicationController
 # data['transaction_type']
 
   def create
-    @harvest = Change.new(params[:harvest])
-    flash[:notice] = "Change was successfully created." if @harvest.save
-    respond_with(@harvest)
+    @crop = Change.new(params[:crop])
+    flash[:notice] = "Change was successfully created." if @crop.save
+    respond_with(@crop)
   end
 
 end

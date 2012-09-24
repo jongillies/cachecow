@@ -26,7 +26,7 @@
         <td><%= transaction.queue_time %></td>
         <td><%= link_to "Delivery", transaction.delivery unless transaction.delivery.nil? %></td>
         <td><%= link_to transaction.subscription.subscriber.name, subscriber_path(transaction.subscription.subscriber) unless transaction.subscription.subscriber.nil? %></td>
-        <td><%= link_to "Change", change_path(transaction.harvest) %></td>
+        <td><%= link_to "Change", change_path(transaction.change.crop) %></td>
         <td><%= transaction.change.primary_key %></td>
         <td><%= transaction.change.transaction_type %></td>
       </tr>

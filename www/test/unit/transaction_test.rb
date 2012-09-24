@@ -14,7 +14,7 @@ class TransactionTest < ActiveSupport::TestCase
   end
 
   test "1st transaction's change is from harvest 1" do
-    assert Transaction.find(1).change.harvest.id == 1
+    assert Transaction.find(1).change.crop.id == 1
   end
 
 end

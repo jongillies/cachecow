@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class HarvestsControllerTest < ActionController::TestCase
+
   setup do
-    @harvest = harvests(:one)
+    @crop = harvests(:one)
   end
 
   test "should get harvest index" do
@@ -12,10 +13,11 @@ class HarvestsControllerTest < ActionController::TestCase
   end
 
   test "should show harvest change" do
-    get :show, id: @harvest
+    get :show, id: @crop
     assert_response :success
   end
 
+  # TODO: Fix this
   #test "should create harvest" do
   #  assert_difference('Harvest.count') do
   #    post :create, harvest: {

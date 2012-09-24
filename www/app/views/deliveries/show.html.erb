@@ -29,7 +29,7 @@
   </tr>
   <tr>
     <td>Crop</td>
-    <td><%= link_to @delivery.transaction.change.harvest.crop.name, crop_path(@delivery.transaction.change.harvest.crop) unless @delivery.transaction.nil? %></td>
+    <td><%= link_to @delivery.transaction.change.crop.name, crop_path(@delivery.transaction.change.crop) unless @delivery.transaction.nil? %></td>
   </tr>
   <tr>
     <td>Endpoint Response Code</td>

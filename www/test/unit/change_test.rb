@@ -10,7 +10,7 @@ class ChangeTest < ActiveSupport::TestCase
   end
 
   test "1st change points to the harvest 1" do
-    assert Change.find(1).harvest.id == 1
+    assert Change.find(1).crop.id == 1
   end
 
   test "1st change has 2 transactions" do

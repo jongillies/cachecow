@@ -5,7 +5,7 @@ class Harvest < ActiveRecord::Base
 
   before_save :calculate_duration
 
-  attr_accessible(:id,
+  attr_accessible :id,
                   :crop_number,
                   :began_at,
                   :ended_at,
@@ -13,9 +13,9 @@ class Harvest < ActiveRecord::Base
                   :number_of_changes,
                   :number_of_adds,
                   :number_of_deletes,
-                  :uuid)
+                  :uuid
 
-  validates_presence_of(:id,
+  validates_presence_of :id,
                         :crop_number,
                         :began_at,
                         :ended_at,
@@ -23,7 +23,7 @@ class Harvest < ActiveRecord::Base
                         :number_of_changes,
                         :number_of_adds,
                         :number_of_deletes,
-                        :uuid)
+                        :uuid
 
   def calculate_duration
     self.duration = self.ended_at - self.began_at
