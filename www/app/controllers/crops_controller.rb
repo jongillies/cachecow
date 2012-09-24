@@ -30,6 +30,7 @@ class CropsController < ApplicationController
 
   def update
     @crop = Crop.find(params[:id])
+
     if @crop.update_attributes(params[:crop])
       flash[:notice] = "Crop was successfully updated."
     end

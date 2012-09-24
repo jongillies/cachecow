@@ -1,4 +1,3 @@
-
 class Change < ActiveRecord::Base
 
   has_one :crop, :foreign_key => :crop_number, :primary_key => :crop_number
@@ -17,4 +16,12 @@ class Change < ActiveRecord::Base
                   :uuid,
                   :harvester_uuid
 
+  #validates_presence_of :crop_number,
+  #                      :queue_time,
+  #                      :primary_key,
+  #                      :previous_value,
+  #                      :current_value,
+  #                      :transaction_type,
+  #                      :uuid,
+  #                      :harvester_uuid
 end

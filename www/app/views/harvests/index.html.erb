@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to "Show", harvest %></td>
         <td><%= harvest.created_at %></td>
-        <td><%= link_to harvest.crop.name, harvest.crop %></td>
+        <td><%= link_to harvest.crop.name, harvest.crop if harvest.crop %></td>
         <td><%= harvest.began_at.to_formatted_s(:long) %></td>
         <td><%= harvest.ended_at.to_formatted_s(:long) %></td>
         <td><%= distance_of_time_in_words harvest.duration if harvest.duration %></td>

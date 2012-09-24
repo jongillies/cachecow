@@ -13,22 +13,10 @@ class ChangesController < ApplicationController
     respond_with(@change = Change.find(params[:id]))
   end
 
-
-# Inbound parameters are:
-#
-# data['harvester_uuid']
-# data['crop_number']
-# data['queue_time']
-# data['primary_key']
-# data['previous_value']
-# data['current_value']
-# data['crop_change_uuid']
-# data['transaction_type']
-
   def create
-    @crop = Change.new(params[:crop])
-    flash[:notice] = "Change was successfully created." if @crop.save
-    respond_with(@crop)
+    @change = Change.new(params[:change])
+    flash[:notice] = "Change was successfully created." if @change.save
+    respond_with(@change)
   end
 
 end

@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(:version => 20120923000358) do
     t.string   "change_uuid"
     t.string   "queue_time"
     t.string   "uuid"
-    t.string   "delivery_uuid"
     t.integer  "subscription_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

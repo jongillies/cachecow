@@ -15,8 +15,7 @@ class Harvest < ActiveRecord::Base
                   :number_of_deletes,
                   :uuid
 
-  validates_presence_of :id,
-                        :crop_number,
+  validates_presence_of :crop_number,
                         :began_at,
                         :ended_at,
                         :total_records,

@@ -23,4 +23,12 @@ class Delivery < ActiveRecord::Base
                   :endpoint_response_header,
                   :endpoint_response_date
 
+  validates_presence_of :queue_time,
+                        :transaction_uuid,
+                        :uuid,
+                        :endpoint_response_code,
+                        :endpoint_response_data,
+                        :endpoint_response_header,
+                        :endpoint_response_date
+
 end

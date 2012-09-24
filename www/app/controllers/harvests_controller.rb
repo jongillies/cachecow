@@ -10,13 +10,15 @@ class HarvestsController < ApplicationController
   end
 
   def show
-    respond_with(@crop = Harvest.find(params[:id]))
+    respond_with(@harvest = Harvest.find(params[:id]))
   end
 
   def create
-    @crop = Change.new(params[:crop])
-    flash[:notice] = "Change was successfully created." if @crop.save
-    respond_with(@crop)
-  end
+    @harvest = Harvest.new(params[:harvest])
 
+    logger.fatal params[:harvest].inspect
+
+    flash[:notice] = "harvest log was successfully created." if @harvest.save
+    respond_with(@harvest)
+  end
 end

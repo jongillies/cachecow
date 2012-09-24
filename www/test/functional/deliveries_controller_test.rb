@@ -35,7 +35,7 @@ class DeliveriesControllerTest < ActionController::TestCase
     assert_redirected_to delivery_path(assigns(:delivery))
     assert_not_nil flash[:notice]
 
-    puts Delivery.find(4).inspect
+    #puts Delivery.find(4).inspect
 
   end
 

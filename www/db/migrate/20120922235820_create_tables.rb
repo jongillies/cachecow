@@ -77,7 +77,6 @@ class CreateTables < ActiveRecord::Migration
       t.string :change_uuid
       t.string :queue_time
       t.string :uuid
-      t.string :delivery_uuid
       t.integer :subscription_id
       t.timestamps
     end

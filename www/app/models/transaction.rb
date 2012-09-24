@@ -15,11 +15,14 @@ class Transaction < ActiveRecord::Base
   belongs_to :change, :foreign_key => :change_uuid, :primary_key => :uuid
   has_one :delivery, :foreign_key => :transaction_uuid, :primary_key => :uuid
 
-  attr_accessible(
-      :subscription_id,
-      :change_uuid,
-      :delivery_uuid,
-      :uuid,
-      :queue_time
-  )
+  attr_accessible :id,
+                  :subscription_id,
+                  :change_uuid,
+                  :uuid,
+                  :queue_time
+
+  #validates_presence_of :change_uuid,
+  #                      :uuid,
+  #                      :queue_time
+
 end
