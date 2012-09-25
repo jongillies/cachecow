@@ -27,4 +27,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  #TODO: Add test for Update
+  #TODO: Add test for Create
+
 end
