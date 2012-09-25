@@ -16,4 +16,12 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+
+  gem.add_dependency 'uuid'
+  gem.add_dependency 'rest-client'
+  gem.add_dependency 'crack'
+  gem.add_dependency 'chronic'
+  gem.add_dependency 'json'
+
 end
