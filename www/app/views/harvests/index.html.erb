@@ -1,3 +1,14 @@
+
+<a href="#" name="search">Search</a>
+<%= search_form_for @q, url: request.path do |c| %>
+    <div id="text_search">
+      <%= c.text_field :crop_id_or_total_records_cont, :placeholder => "Search any text fields" %>
+      <%= c.submit %>
+      <%= link_to "clear", request.path %>
+    </div>
+<% end %>
+
+
 <h1>Harvests</h1>
 <table>
   <tr>

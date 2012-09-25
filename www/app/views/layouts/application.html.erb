@@ -23,7 +23,7 @@
 
   <div id="hd">
     <div id="innerHd">
-      <div id="hdBanner"><%= link_to "CACHE COW", root_url %></div><%#= link_to image_tag("logo.png", :alt => app_name), root_url %>
+      <div id="hdBanner"><%= link_to image_tag("cow.png", :height => "35%", :width => "35%"), root_url %></div>
       <div id="hdSessionInfoAndTopNav">
         <div id="hdInnerSessionInfoAndTopNav">
           <div id="sessionInfo">
@@ -46,13 +46,6 @@
     </div>
   </div>
   <div id="bd">
-    <% if Rails.env == "development" %>
-        <p><%= controller_name.capitalize %></p>
-
-        <p><%= params %></p>
-
-        <p><%= session %></p>
-    <% end %>
     <%- flash.each do |key, value| %>
         <div class="flash <%= key %>">
           <div><%= value %></div>

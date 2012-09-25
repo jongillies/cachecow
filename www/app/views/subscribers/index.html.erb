@@ -1,5 +1,15 @@
 <h1>Subscribers</h1>
 
+<a href="#" name="search">Search</a>
+<%= search_form_for @q, url: request.path do |c| %>
+    <div id="text_search">
+      <%= c.text_field :name_or_admin_contact_or_technical_contact_cont, :placeholder => "Search any text fields" %>
+      <%= c.submit %>
+      <%= link_to "clear", request.path %>
+    </div>
+<% end %>
+
+
 <p><%= link_to 'New Subscriber', new_subscriber_path %></p>
 
 <table>

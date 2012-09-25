@@ -25,10 +25,10 @@
         <td><%= link_to "Show", transaction %></td>
         <td><%= transaction.queue_time %></td>
         <td><%= link_to "Delivery", transaction.delivery unless transaction.delivery.nil? %></td>
-        <td><%= link_to transaction.subscription.subscriber.name, subscriber_path(transaction.subscription.subscriber) unless transaction.subscription.subscriber.nil? %></td>
-        <td><%= link_to "Change", change_path(transaction.change.crop) %></td>
-        <td><%= transaction.change.primary_key %></td>
-        <td><%= transaction.change.transaction_type %></td>
+        <td><%= link_to transaction.subscription.subscriber.name, subscriber_path(transaction.subscription.subscriber) unless transaction.subscription.nil? %></td>
+        <td><%= link_to "Change", change_path(transaction.change.crop) unless transaction.change.nil? %></td>
+        <td><%= transaction.change.primary_key unless transaction.change.nil? %></td>
+        <td><%= transaction.change.transaction_type  unless transaction.change.nil?%></td>
       </tr>
   <% end %>
 </table>
