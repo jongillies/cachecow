@@ -28,6 +28,12 @@
     <td>Technical contact:</td>
     <td><%= @subscriber.technical_contact %></td>
   </tr>
+
+  <tr>
+    <td>Number of subscriptions:</td>
+    <td><%= link_if_not_zero @subscriber.subscriptions.count, subscriptions_path({:q => {:subscriber_id_eq => @subscriber.id}})%></td>
+
+  </tr>
   </tbody>
 </table>
 

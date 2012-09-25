@@ -35,19 +35,19 @@
   </tr>
   <tr>
     <td>Number of Changes:</td>
-    <td><%= link_to @harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "change"}}) %></td>
+    <td><%= link_if_not_zero @harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "change"}}) %></td>
   </tr>
   <tr>
     <td>Number of Adds:</td>
-    <td><%= link_to @harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "add"}}) %></td>
+    <td><%= link_if_not_zero @harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "add"}}) %></td>
   </tr>
   <tr>
     <td>Number of Deletes:</td>
-    <td><%= link_to @harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "delete"}}) %></td>
+    <td><%= link_if_not_zero @harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "delete"}}) %></td>
   </tr>
   <tr>
     <td>Complete Change Set:</td>
-    <td><%= link_to @harvest.total_change_set, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid}}) %></td>
+    <td><%= link_if_not_zero @harvest.total_change_set, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid}}) %></td>
   </tr>
   </tbody>
 </table>
