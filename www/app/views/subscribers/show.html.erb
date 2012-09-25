@@ -31,7 +31,7 @@
 
   <tr>
     <td>Number of subscriptions:</td>
-    <td><%= link_if_not_zero @subscriber.subscriptions.count, subscriptions_path({:q => {:subscriber_id_eq => @subscriber.id}})%></td>
+    <td><%= link_to_if_not_zero @subscriber.subscriptions.count, subscriptions_path({:q => {:subscriber_id_eq => @subscriber.id}})%></td>
 
   </tr>
   </tbody>

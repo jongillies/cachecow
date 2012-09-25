@@ -34,10 +34,10 @@
               <li><%= link_to "Crops", crops_path %></li>
               <li><%= link_to "Subscribers", subscribers_path %></li>
               <li><%= link_to "Subscriptions", subscriptions_path %></li>
-              <li><%= link_to "Harvester Logs", harvests_path %></li>
-              <li><%= link_to "Change Logs", changes_path %></li>
-              <li><%= link_to "Transaction Logs", transactions_path %></li>
-              <li><%= link_to "Delivery Logs", deliveries_path %></li>
+              <li><%= link_to "Harvests", harvests_path %></li>
+              <li><%= link_to "Changes", changes_path %></li>
+              <li><%= link_to "Transactions", transactions_path %></li>
+              <li><%= link_to "Deliveries", deliveries_path %></li>
             </ul>
           </div>
         </div>
@@ -61,7 +61,7 @@
     <%= yield %>
   </div>
   <div id="ft">
-    <%= image_tag "cow.png", :title => "Cache Cow", :class => "cow" %>
+    <%#= image_tag "cow.png", :title => "Cache Cow", :class => "cow" %>
     <div id="footerNav">
       Version: <%#= APP_VERSION['build_info']['version'] %>
       Build: <%#= APP_VERSION['svn_info']['Revision'] %> <%#= APP_VERSION['build_info']['timestamp'] %> <%#= APP_VERSION['build_info']['message'] %>

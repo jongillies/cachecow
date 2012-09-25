@@ -28,7 +28,7 @@
         <td><%= link_to change.crop.name, crop_path(change.crop) unless change.crop.nil? %></td>
         <td><%= change.primary_key %></td>
         <td><%= change.transaction_type %></td>
-        <td><%= link_if_not_zero change.transactions.count,    transactions_path({:q => {:change_uuid_eq => change.uuid}})%>
+        <td><%= link_to_if_not_zero change.transactions.count,    transactions_path({:q => {:change_uuid_eq => change.uuid}})%>
 
 
       </tr>
