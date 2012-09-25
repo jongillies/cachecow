@@ -1,4 +1,4 @@
-<%= form_for(@crop) do |f| %>
+<%= semantic_form_for(@crop) do |f| %>
     <% if @crop.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
