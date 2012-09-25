@@ -5,7 +5,7 @@ class ChangesController < ApplicationController
   def index
     @q = Change.search(params[:q])
     @total = @q.result(:distinct => true).order("created_at DESC")
-    @changes = @total.paginate(page: params[:page])
+    @changes = @q.result.page(params[:page]).per(5)
     respond_with(@changes)
   end
 

@@ -5,8 +5,7 @@ class CropsController < ApplicationController
   def index
     @q = Crop.search(params[:q])
     @total = @q.result(:distinct => true).order("name")
-    @crops = @total.paginate(page: params[:page])
-
+    @crops = @q.result.page(params[:page]).per(5)
     respond_with(@crops)
   end
 

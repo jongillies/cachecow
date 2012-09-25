@@ -5,7 +5,7 @@ class SubscribersController < ApplicationController
   def index
     @q = Subscriber.search(params[:q])
     @total = @q.result(:distinct => true).order("name")
-    @subscribers = @total.paginate(page: params[:page])
+    @subscribers = @q.result.page(params[:page]).per(5)
     respond_with(@subscribers)
   end
 

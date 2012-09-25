@@ -3,7 +3,7 @@ require 'test_helper'
 class CropTest < ActiveSupport::TestCase
 
   test "crop count" do
-    assert Crop.all.count == 2
+    assert Crop.all.count == 100
   end
 
   # Traverse the object path from the crop

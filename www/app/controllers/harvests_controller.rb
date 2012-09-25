@@ -5,7 +5,7 @@ class HarvestsController < ApplicationController
   def index
     @q = Harvest.search(params[:q])
     @total = @q.result(:distinct => true).order("created_at DESC")
-    @harvests = @total.paginate(page: params[:page])
+    @harvests =  @q.result.page(params[:page]).per(5)
     respond_with(@harvests)
   end
 
