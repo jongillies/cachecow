@@ -2,6 +2,8 @@ require 'test_helper'
 
 class ChangesControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @change = changes(:one)
   end

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class HarvestsControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @harvest = harvests(:one)
   end

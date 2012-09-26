@@ -2,6 +2,8 @@ require 'test_helper'
 
 class DeliveriesControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @delivery = deliveries(:one)
   end

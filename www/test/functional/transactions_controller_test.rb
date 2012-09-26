@@ -2,6 +2,8 @@ require 'test_helper'
 
 class TransactionsControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @transaction = transactions(:one)
   end

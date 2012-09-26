@@ -2,6 +2,8 @@ require 'test_helper'
 
 class CropsControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @crop = crops(:one)
   end

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class SubscriptionsControllerTest < ActionController::TestCase
 
+  include Devise::TestHelpers
+
   setup do
     @subscription = subscriptions(:one)
   end
