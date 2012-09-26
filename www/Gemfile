@@ -29,4 +29,4 @@ gem "ransack"  # Search
 gem "kaminari" # Pagination
 gem "formtastic" # Forms
 
-
+gem "haml-bootstrap-rails"
