@@ -1,0 +1,20 @@
+%h1 Subscribers
+%a{:href => "#", :name => "search"} Search
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :name_or_admin_contact_or_technical_contact_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%p= link_to 'New Subscriber', new_subscriber_path
+%table
+  %tr
+    %th Name
+    %th Admin Contact
+    %th Technical Contact
+    %th Number of Subscriptions
+  - @subscribers.each do |subscriber|
+    %tr
+      %td= link_to subscriber.name, subscriber
+      %td= subscriber.admin_contact
+      %td= subscriber.technical_contact
+      %td= link_to_if_not_zero subscriber.subscriptions.count, subscriptions_path({:q => {:subscriber_id_eq => subscriber.id}})
+= paginate @subscribers

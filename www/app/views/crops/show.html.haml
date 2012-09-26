@@ -1,0 +1,38 @@
+%h1 Crop
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Name:
+      %td= @crop.name
+    %tr
+      %td Crop Number:
+      %td= @crop.crop_number
+    %tr
+      %td Description:
+      %td= @crop.description
+    %tr
+      %td Harvests:
+      %td TODO
+    %tr
+      %td Config Options:
+      %td= @crop.config_options
+    %tr
+      %td Subscriptions:
+      %td= @crop.subscriptions.count
+    %tr
+      %td Adds/Changes/Deletes
+      %td
+        = link_to_if_not_zero @crop.number_of_things("add"),    transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "add"}})
+        \/
+        \#{link_to_if_not_zero @crop.number_of_things("change"), transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "change"}})}/
+        \#{link_to_if_not_zero @crop.number_of_things("delete"), transaction_path({:q => {:crop_id_eq => @crop.id, :transaction_type_eq => "delete"}})}
+%br/
+= link_to 'Back', crops_path
+= link_to 'Edit', edit_crop_path(@crop)
+|
+\#{link_to 'Destroy', crop_path, :confirm => 'Are you sure?', :method => :delete}

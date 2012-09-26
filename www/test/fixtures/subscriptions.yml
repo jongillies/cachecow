@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+one:
+  id: 1
+  crop_id: 1
+  subscriber_id: 1
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true
+two:
+  id: 2
+  crop_id: 1
+  subscriber_id: 2
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true
+three:
+  id: 3
+  crop_id: 2
+  subscriber_id: 1
+  tractor_quantity: 1
+  endpoint_url: "http://localhost:3456"
+  active: true

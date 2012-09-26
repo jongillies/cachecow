@@ -1,0 +1,34 @@
+%h1 Change
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Change UUID:
+      %td= @change.uuid
+    %tr
+      %td Harvester UUID:
+      %td= link_to @change.harvest.uuid, harvest_path(@change.harvest) unless @change.harvest.nil?
+    %tr
+      %td Crop:
+      %td= link_to @change.crop.name, crop_path(@change.crop) unless @change.crop.nil?
+    %tr
+      %td Type:
+      %td= @change.transaction_type
+    %tr
+      %td Queue time:
+      %td= @change.queue_time
+    %tr
+      %td Primary key:
+      %td= @change.primary_key
+    %tr
+      %td Previous value:
+      %td= @change.previous_value
+    %tr
+      %td Current value:
+      %td= @change.current_value
+%br/
+= link_to 'Back', changes_path

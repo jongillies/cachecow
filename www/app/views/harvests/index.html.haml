@@ -1,0 +1,31 @@
+%a{:href => "#", :name => "search"} Search
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :crop_id_or_total_records_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%h1 Harvests
+%table
+  %tr
+    %th Log
+    %th Queued At
+    %th Crop
+    %th Began At
+    %th Ended At
+    %th Duration
+    %th Total Records
+    %th Changes
+    %th Adds
+    %th Deletes
+  - @harvests.each do |harvest|
+    %tr
+      %td= link_to "Show", harvest
+      %td= harvest.created_at
+      %td= link_to harvest.crop.name, harvest.crop if harvest.crop
+      %td= harvest.began_at.to_formatted_s(:long)
+      %td= harvest.ended_at.to_formatted_s(:long)
+      %td= distance_of_time_in_words harvest.duration if harvest.duration
+      %td= harvest.total_records
+      %td= link_to_if_not_zero harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "change"}})
+      %td= link_to_if_not_zero harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "add"}})
+      %td= link_to_if_not_zero harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => harvest.uuid, :transaction_type_cont => "delete"}})
+= paginate @harvests

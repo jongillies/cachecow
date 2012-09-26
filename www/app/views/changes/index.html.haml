@@ -1,0 +1,25 @@
+%h1 Changes
+%a{:href => "#", :name => "search"} Search
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :crop_id_or_harvester_uuid_or_crop_number_or_current_value_or_previous_value_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%br/
+%table
+  %tr
+    %th Change Log
+    %th Queued At
+    %th Crop
+    %th Primary Key
+    %th Transaction Type
+    %th Number of transactions
+  - @changes.each do |change|
+    %tr
+      %td= link_to "Show", change_path(change)
+      %td= change.queue_time
+      %td= link_to change.crop.name, crop_path(change.crop) unless change.crop.nil?
+      %td= change.primary_key
+      %td= change.transaction_type
+      %td
+        = link_to_if_not_zero change.transactions.count,    transactions_path({:q => {:change_uuid_eq => change.uuid}})
+= paginate @changes

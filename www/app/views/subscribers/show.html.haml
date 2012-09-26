@@ -1,0 +1,26 @@
+%h1 Subscriber
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Name:
+      %td= @subscriber.name
+    %tr
+      %td Secret key:
+      %td= @subscriber.secret_key
+    %tr
+      %td Admin contact:
+      %td= @subscriber.admin_contact
+    %tr
+      %td Technical contact:
+      %td= @subscriber.technical_contact
+    %tr
+      %td Number of subscriptions:
+      %td= link_to_if_not_zero @subscriber.subscriptions.count, subscriptions_path({:q => {:subscriber_id_eq => @subscriber.id}})
+= link_to 'Edit', edit_subscriber_path
+= link_to 'Destroy', subscribers_path, :confirm => 'Are you sure?', :method => :delete
+= link_to 'Back', subscribers_path

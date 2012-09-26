@@ -1,0 +1,28 @@
+%h1 Crops
+%a{:href => "#", :name => "search"} Search
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :name_or_description_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%p= link_to 'New Crop', new_crop_path
+%table
+  %tr
+    %th Name
+    %th Crop Number
+    %th # Subscriptions
+    %th A/C/D
+    %th Harvests
+    %th Description
+  - @crops.each do |crop|
+    %tr
+      %td= link_to crop.name, crop
+      %td= crop.crop_number
+      %td
+        = link_to_if_not_zero crop.subscriptions.count,        subscriptions_path({:q => {:crop_id_eq => crop.id}})
+      %td
+        = link_to_if_not_zero crop.number_of_things("add"),    changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "add"}})
+        \/
+        \#{link_to_if_not_zero crop.number_of_things("change"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "change"}})}/
+        \#{link_to_if_not_zero crop.number_of_things("delete"), changes_path({:q => {:crop_id_eq => crop.id, :transaction_type_eq => "delete"}})}
+      %td= crop.description
+= paginate @crops

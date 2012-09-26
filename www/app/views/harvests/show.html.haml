@@ -1,0 +1,39 @@
+%h1 Harvest
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Harvester UUID:
+      %td= @harvest.uuid
+    %tr
+      %td Crop:
+      %td= link_to @harvest.crop.name, @harvest.crop if @harvest.crop
+    %tr
+      %td Began At:
+      %td= @harvest.began_at
+    %tr
+      %td Ended At:
+      %td= @harvest.ended_at
+    %tr
+      %td Duration:
+      %td= distance_of_time_in_words @harvest.duration if @harvest.duration
+    %tr
+      %td Total Records:
+      %td= @harvest.total_records
+    %tr
+      %td Number of Changes:
+      %td= link_to_if_not_zero @harvest.number_of_changes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "change"}})
+    %tr
+      %td Number of Adds:
+      %td= link_to_if_not_zero @harvest.number_of_adds, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "add"}})
+    %tr
+      %td Number of Deletes:
+      %td= link_to_if_not_zero @harvest.number_of_deletes, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid, :transaction_type_cont => "delete"}})
+    %tr
+      %td Complete Change Set:
+      %td= link_to_if_not_zero @harvest.total_change_set, changes_path({:q => {:harvester_uuid_cont => @harvest.uuid}})
+= link_to 'Back', harvests_path

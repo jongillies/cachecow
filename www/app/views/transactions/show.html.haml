@@ -1,0 +1,40 @@
+%h1 Transaction
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Delivery UUID
+      %td= link_to @transaction.delivery.uuid, @transaction.delivery if @transaction.delivery
+    %tr
+      %td Transaction UUID:
+      %td= @transaction.uuid
+    %tr
+      %td Subscriber:
+      %td= link_to @transaction.subscription.subscriber.name, subscriber_path(@transaction.subscription.subscriber) unless @transaction.subscription.subscriber.nil?
+    %tr
+      %td Crop:
+      %td= link_to @transaction.change.crop.name, crop_path(@transaction.change.crop)
+    %tr
+      %td Change:
+      %td= link_to @transaction.change.uuid, change_path(@transaction.change) unless @transaction.change.nil?
+    %tr
+      %td Delivered:
+      %td= link_to(@transaction.delivery.endpoint_response_date, @transaction.delivery) unless @transaction.delivery.nil?
+    %tr
+      %td Queue time:
+      %td= @transaction.queue_time
+    %tr
+      %td Primary Key:
+      %td= @transaction.change.primary_key
+    %tr
+      %td Previous Value:
+      %td= @transaction.change.previous_value
+    %tr
+      %td Current Value:
+      %td= @transaction.change.current_value
+%br/
+= link_to 'Back', transactions_path

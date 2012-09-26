@@ -1,0 +1,27 @@
+%h1 Subscription
+%table
+  %caption
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    %tr
+      %td Active:
+      %td= @subscription.active
+    %tr
+      %td Crop:
+      %td= @subscription.crop.name
+    %tr
+      %td Subscriber:
+      %td= @subscription.subscriber.name
+    %tr
+      %td Endpoint URL:
+      %td= @subscription.endpoint_url
+    %tr
+      %td Tractor quantity:
+      %td= @subscription.tractor_quantity
+= link_to 'Edit', edit_subscription_path(@subscription)
+|
+\#{link_to 'Back', subscriptions_path}
+\#{link_to 'Destroy', subscription_path, :confirm => 'Are you sure?', :method => :delete}

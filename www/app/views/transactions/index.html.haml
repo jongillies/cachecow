@@ -1,0 +1,25 @@
+%h1 Transactions
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :change_uuid_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%br/
+%table
+  %tr
+    %th Delivery Log
+    %th Queued At
+    %th Delivery
+    %th Subscriber
+    %th Change
+    %th Primary Key
+    %th Transaction Type
+  - @transactions.each do |transaction|
+    %tr
+      %td= link_to "Show", transaction
+      %td= transaction.queue_time
+      %td= link_to "Delivery", transaction.delivery unless transaction.delivery.nil?
+      %td= link_to transaction.subscription.subscriber.name, subscriber_path(transaction.subscription.subscriber) unless transaction.subscription.nil?
+      %td= link_to "Change", change_path(transaction.change.crop) unless transaction.change.nil?
+      %td= transaction.change.primary_key unless transaction.change.nil?
+      %td= transaction.change.transaction_type  unless transaction.change.nil?
+= paginate @transactions

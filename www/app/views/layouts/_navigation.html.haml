@@ -1,0 +1,31 @@
+= link_to "CacheCow", root_path, :class => 'brand'
+%ul.nav
+  %li
+    = link_to "Crops", crops_path
+  %li
+    = link_to "Subscribers", subscribers_path
+  %li
+    = link_to "Subscriptions", subscriptions_path
+  %li
+    = link_to "Harvests", harvests_path
+  %li
+    = link_to "Changes", changes_path
+  %li
+    = link_to "Transactions", transactions_path
+  %li
+    = link_to "Deliveries", deliveries_path
+  - if user_signed_in?
+    %li
+      = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+  - else
+    %li
+      = link_to 'Login', new_user_session_path
+  - if user_signed_in?
+    %li
+      = link_to 'Edit account', edit_user_registration_path
+    - if current_user.has_role? :admin
+      %li
+        = link_to 'Admin', users_path
+  - else
+    %li
+      = link_to 'Sign up', new_user_registration_path

@@ -1,0 +1,24 @@
+%h1 Deliveries
+%a{:href => "#", :name => "search"} Search
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :uuid_or_endpoint_response_code_or_endpoint_response_data_or_endpoint_response_header_cont, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%br/
+%table
+  %tr
+    %th Log
+    %th Queued At
+    %th Transaction UID
+    %th Subscriber
+    %th Response Code
+    %th Response Date
+  - @deliveries.each do |delivery|
+    %tr
+      %td= link_to "Show", delivery_path(delivery)
+      %td= delivery.queue_time
+      %td= link_to delivery.transaction.uuid, transaction_path(delivery.transaction) unless delivery.transaction.nil?
+      %td= link_to delivery.transaction.subscription.subscriber.name, subscriber_path(delivery.transaction.subscription.subscriber) unless delivery.transaction.nil?
+      %td= delivery.endpoint_response_code
+      %td= delivery.endpoint_response_date
+= paginate @deliveries

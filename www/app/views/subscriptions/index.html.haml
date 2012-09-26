@@ -1,0 +1,22 @@
+%h1 Subscriptions
+= search_form_for @q, url: request.path do |c|
+  = c.text_field :crop_id_eq, :placeholder => "Search any text fields"
+  = c.submit
+  = link_to "clear", request.path
+%br/
+%p= link_to 'New Subscription', new_subscription_path
+%table
+  %tr
+    %th Subscription
+    %th Active
+    %th Crop
+    %th Subscriber
+    %th Tractor quantity
+  - @subscriptions.each do |subscription|
+    %tr
+      %td= link_to "Show", subscription
+      %td= subscription.active
+      %td= link_to subscription.crop.name, subscription.crop
+      %td= link_to subscription.subscriber.name, subscription.subscriber
+      %td= subscription.tractor_quantity
+= paginate @subscriptions
