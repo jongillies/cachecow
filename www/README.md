@@ -52,7 +52,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 This is the only documentation.
 
-h4. Issues
+### Issues
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
