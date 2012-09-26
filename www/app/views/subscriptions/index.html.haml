@@ -4,7 +4,7 @@
   = c.submit
   = link_to "clear", request.path
 %br/
-%p= link_to 'New Subscription', new_subscription_path
+%p= link_to 'New Subscription', new_subscription_path if can? :manage, Subscription
 %table
   %tr
     %th Subscription

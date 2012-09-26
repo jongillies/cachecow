@@ -2,6 +2,8 @@ class CropsController < ApplicationController
 
   respond_to :html, :json
 
+  load_and_authorize_resource unless Rails.env == "test"
+
   def index
     @q = Crop.search(params[:q])
     @total = @q.result(:distinct => true).order("name")

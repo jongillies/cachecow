@@ -4,7 +4,7 @@
   = c.text_field :name_or_description_cont, :placeholder => "Search any text fields"
   = c.submit
   = link_to "clear", request.path
-%p= link_to 'New Crop', new_crop_path
+%p= link_to 'New Crop', new_crop_path if can? :manage, Crop
 %table
   %tr
     %th Name

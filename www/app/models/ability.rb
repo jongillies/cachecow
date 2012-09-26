@@ -1,11 +1,37 @@
 class Ability
+
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    if user.has_role? :admin
+
+    user = User.new if user.nil?
+    roles = user.roles.map(&:name)
+    #
+    #if Rails.env == "development"
+    #  can :read, :all
+    #  can :manage, :all
+    #  can :update, User, :id => user.id
+    #end
+    #
+    #if roles.empty?
+    #  can :manage, :all
+    #end
+    #
+    #if roles.include? "user"
+    #  can :read, :all
+    #  cannot :edit
+    #  cannot :destroy
+    #  can :update, User, :id => user.id
+    #end
+    #
+
+    can :read, :all
+
+    if roles.include? "admin"
       can :manage, :all
+      cannot :destroy, User, :id => user.id
     end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
