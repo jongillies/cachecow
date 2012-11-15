@@ -25,31 +25,20 @@ module CcFeeder
 
     def initialize(args)
 
-      if args.has_key?(:debug)
-        @debug = args[:debug] == 1 || args[:debug] == true
-      end
 
-      if args.has_key?(:secret_key)
-        @secret_key = args[:secret_key]
-      else
-        @secret_key = ""
-      end
+      @debug = args.fetch(:debug) { false }
+      @log = args.fetch(:logger) { Logger.new(STDOUT) }
 
-      if args.has_key?(:logger)
-        @log = args[:logger]
-      else
-        @log = Logger.new(STDOUT)
-      end
+      @secret_key = args.fetch(:secret_key) { "" }
 
-      raise "arguments must contain :url => some_url" if args[:url].nil?
+      @url = args.fetch(:url) { raise "You must provide :url" }
 
-      args[:username].nil? ? @username = "" : @username = args[:username]
-      args[:password].nil? ? @password = "" : @password = args[:password]
-      args[:max_retries].nil? ? @max_retries = MAX_RETRIES : @max_retries = args[:max_retries]
-      args[:retry_interval].nil? ? @retry_interval = RETRY_INTERVAL : @retry_interval = args[:retry_interval]
-      args[:cache_time].nil? ? @cache_time = CACHE_TIME : @cache_time = args[:cache_time]
+      @username = args.fetch(:username) { "" }
+      @password = args.fetch(:password) { "" }
 
-      @url = args[:url]
+      @max_retries = args.fetch(:max_retries) { MAX_RETRIES }
+      @retry_interval = args.fetch(:retry_interval) { RETRY_INTERVAL }
+      @cache_time = args.fetch(:cache_time) { CACHE_TIME }
 
       @resource = RestClient::Resource.new @url
 
