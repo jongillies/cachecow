@@ -5,7 +5,7 @@ class DeliveriesController < ApplicationController
   def index
     @q = Delivery.search(params[:q])
     @total = @q.result(:distinct => true).order("created_at DESC")
-    @deliveries = @q.result.page(params[:page]).per(5)
+    @deliveries = @q.result.page(params[:page]).per(100)
     respond_with(@deliveries)
   end
 

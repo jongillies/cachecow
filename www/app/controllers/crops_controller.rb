@@ -5,9 +5,10 @@ class CropsController < ApplicationController
   load_and_authorize_resource unless Rails.env == "test"
 
   def index
+    # TODO Need to respond with all records if format is JSON
     @q = Crop.search(params[:q])
     @total = @q.result(:distinct => true).order("name")
-    @crops = @q.result.page(params[:page]).per(5)
+    @crops = @q.result.page(params[:page]).per(1000)
     respond_with(@crops)
   end
 

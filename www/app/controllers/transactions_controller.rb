@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     @q = Transaction.search(params[:q])
     @total = @q.result(:distinct => true).order("created_at DESC")
-    @transactions =  @q.result.page(params[:page]).per(5)
+    @transactions =  @q.result.page(params[:page]).per(100)
     respond_with(@transactions)
   end
 

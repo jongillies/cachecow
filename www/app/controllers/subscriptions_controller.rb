@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
   def index
     @q = Subscription.search(params[:q])
     @total = @q.result(:distinct => true)
-    @subscriptions =  @q.result.page(params[:page]).per(5)
+    @subscriptions =  @q.result.page(params[:page]).per(100)
     respond_with(@subscriptions)
   end
 
