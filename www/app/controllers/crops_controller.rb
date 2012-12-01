@@ -8,8 +8,12 @@ class CropsController < ApplicationController
     # TODO Need to respond with all records if format is JSON
     @q = Crop.search(params[:q])
     @total = @q.result(:distinct => true).order("name")
-    @crops = @q.result.page(params[:page]).per(1000)
-    respond_with(@crops)
+    if params[:format] == "json"
+      respond_with(@total)
+    else
+      @crops = @q.result.page(params[:page]).per(10)
+      respond_with(@crops)
+    end
   end
 
   def show
