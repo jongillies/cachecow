@@ -1,11 +1,11 @@
-%h1 Subscriptions
+%h1= "Subscriptions (#{@total.count})"
 = search_form_for @q, url: request.path do |c|
   = c.text_field :crop_id_eq, :placeholder => "Search any text fields"
   = c.submit
   = link_to "clear", request.path
 %br/
 %p= link_to 'New Subscription', new_subscription_path if can? :manage, Subscription
-%table
+%table.table-bordered.table-striped
   %tr
     %th Subscription
     %th Active

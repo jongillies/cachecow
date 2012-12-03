@@ -1,10 +1,10 @@
+%h1= "Harvests (#{@total.count})"
 %a{:href => "#", :name => "search"} Search
 = search_form_for @q, url: request.path do |c|
   = c.text_field :crop_id_or_total_records_cont, :placeholder => "Search any text fields"
   = c.submit
   = link_to "clear", request.path
-%h1 Harvests
-%table
+%table.table-bordered.table-striped
   %tr
     %th Log
     %th Queued At

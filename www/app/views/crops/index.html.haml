@@ -1,4 +1,4 @@
-%h1 Crops
+%h1= "Crops (#{@total.count})"
 %a{:href => "#", :name => "search"} Search
 = search_form_for @q, url: request.path do |c|
   = c.text_field :name_or_description_cont, :placeholder => "Search any text fields"

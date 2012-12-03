@@ -25,10 +25,16 @@
       %td Primary key:
       %td= @change.primary_key
     %tr
+      %td Difference:
+      %td
+        %pre= my_json_diff(@change.previous_value,@change.current_value)
+    %tr
       %td Previous value:
-      %td= @change.previous_value
+      %td
+        %pre= JSON.pretty_generate(Crack::JSON.parse(@change.previous_value))
     %tr
       %td Current value:
-      %td= @change.current_value
+      %td
+        %pre= JSON.pretty_generate(Crack::JSON.parse(@change.current_value))
 %br/
 = link_to 'Back', changes_path

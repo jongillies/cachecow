@@ -1,11 +1,11 @@
-%h1 Changes
+%h1= "Changes (#{@total.count})"
 %a{:href => "#", :name => "search"} Search
 = search_form_for @q, url: request.path do |c|
   = c.text_field :crop_id_or_harvester_uuid_or_crop_number_or_current_value_or_previous_value_cont, :placeholder => "Search any text fields"
   = c.submit
   = link_to "clear", request.path
 %br/
-%table
+%table.table-bordered.table-striped
   %tr
     %th Change Log
     %th Queued At
