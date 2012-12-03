@@ -22,6 +22,10 @@ class Crop < ActiveRecord::Base
     self.changes.where(:crop_number => self.crop_number, :transaction_type => transaction_type).count
   end
 
+  def harvests
+    Harvest.where(:crop_number => self.crop_number).count
+  end
+
   def total_records
     unless CropLog.where(:crop_id => self.id).order(:ended_at).last.nil?
       CropLog.where(:crop_id => self.id).order(:ended_at).last.total_records
