@@ -1,20 +1,23 @@
-%h1= "Crops (#{@total.count})"
+%h1="Crops (#{@total.count})"
 %a{:href => "#", :name => "search"} Search
 = search_form_for @q, url: request.path do |c|
   = c.text_field :name_or_description_cont, :placeholder => "Search any text fields"
-  = c.submit
-  %well.btn.primary= link_to "Clear", request.path
-%well.btn.primary= link_to 'New Crop', new_crop_path if can? :manage, Crop
-%br
-%br
-%table.table-bordered.table-striped
-  %thread
+  = c.submit class: "btn primary"
+  = link_to "Clear", request.path, class: "btn primary"
+= link_to 'New Crop', new_crop_path, class: "btn primary" if can? :manage, Crop
+%table.table.table-hover.table-bordered.table-striped
+  %thead
     %tr
-      %th Name
-      %th Crop Number
-      %th # Subscriptions
-      %th A/C/D
-      %th Harvests
+      %th= sort_link @q, :name
+      %th= sort_link @q, :crop_number
+      %th= sort_link @q, :subscriptions
+      %th
+        = sort_link @q, :add, "A"
+        \/
+        = sort_link @q, :change, "C"
+        \/
+        = sort_link @q, :delete, "D"
+      %th= sort_link @q, :harvests
       %th Description
     %tbody
       - @crops.each do |crop|
