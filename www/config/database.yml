@@ -10,13 +10,13 @@
 #  timeout: 5000
 
 development:
-  adapter: mysql2
-  database: cachecow_development
-  username: root
-  password: 
-  host: localhost
-  port: 3306
-  pool: 20
+            adapter: mysql2
+            database: cachecow_development
+            username: root
+            password:
+            host: localhost
+            port: 3306
+            pool: 20
 
 
 # Warning: The database defined as "test" will be erased and

@@ -1,4 +1,4 @@
-cachecow
-========
+cachecow is the UI for the Barnyard!
 
-UI for the Honeybadger!
+It's also the API for Barnyard!
+
